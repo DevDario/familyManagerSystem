@@ -1,6 +1,7 @@
 package familymanagersystem.forms;
 
 import familymanagersystem.Familia;
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
@@ -35,6 +36,7 @@ public class SystemDashBoard extends javax.swing.JFrame {
      */
     public SystemDashBoard() {
         initComponents();
+        setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -46,56 +48,49 @@ public class SystemDashBoard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBackground = new javax.swing.JPanel();
-        jHeaderBackground = new javax.swing.JPanel();
-        jRegisterFamilyBtn = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        roundedPanel1 = new components.RoundedPanel();
+        jCloseBtn = new javax.swing.JLabel();
         jDashboardTitle = new javax.swing.JLabel();
-        jActionsBackground = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jBackgroundLine = new javax.swing.JPanel();
+        jCreateNewFamilyButton = new javax.swing.JLabel();
+        roundedPanel2 = new components.RoundedPanel();
+        jNumberOfFamilesTitle = new javax.swing.JLabel();
+        jNumberOfFamilies = new javax.swing.JLabel();
+        jFamilyIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRegisterFather = new javax.swing.JLabel();
-        jRegisterIcon = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jRegisterIcon1 = new javax.swing.JLabel();
-        jRegisterMother = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jRegisterIcon2 = new javax.swing.JLabel();
-        jRegisterSon = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jRegisterDaughter = new javax.swing.JLabel();
-        jRegisterIcon3 = new javax.swing.JLabel();
-        jBackgroundLine1 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jRegisterBankAccount = new javax.swing.JLabel();
-        jBankIcon = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jRegisterBankAccount1 = new javax.swing.JLabel();
-        jBankIcon3 = new javax.swing.JLabel();
-        jBackgroundLine3 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jRegisterBankAccount3 = new javax.swing.JLabel();
+        roundedPanel3 = new components.RoundedPanel();
+        jNumberOfFamilesTitle1 = new javax.swing.JLabel();
+        jAmountMoney = new javax.swing.JLabel();
         jMoneyIcon = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jRegisterBankAccount4 = new javax.swing.JLabel();
-        jMoneyIcon1 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jRegisterBankAccount2 = new javax.swing.JLabel();
-        jRegisterBankAccount5 = new javax.swing.JLabel();
-        jBankIcon2 = new javax.swing.JLabel();
-        jRegisterBankAccount6 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jNumberOfRegisteredFamiliesTitle = new javax.swing.JLabel();
-        jNumberOfRegisteredFamilies = new javax.swing.JLabel();
-        jBankIcon4 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jRegisterBankAccount9 = new javax.swing.JLabel();
-        jRegisterBankAccount10 = new javax.swing.JLabel();
-        jBankIcon5 = new javax.swing.JLabel();
+        roundedPanel4 = new components.RoundedPanel();
+        jNumberOfFamilesTitle2 = new javax.swing.JLabel();
+        jNumberOfCompanies = new javax.swing.JLabel();
+        jCompanyIcon = new javax.swing.JLabel();
+        roundedPanel5 = new components.RoundedPanel();
+        jRegisterFatherButton = new javax.swing.JLabel();
+        jRegisterMotherButton = new javax.swing.JLabel();
+        jRegisterSonButton = new javax.swing.JLabel();
+        jRegisterDaughterButton = new javax.swing.JLabel();
+        jRegisterFamilyDispensesButton = new javax.swing.JLabel();
+        jRegisterPersonDispensesButton = new javax.swing.JLabel();
+        jRegisterBigCompanyButton = new javax.swing.JLabel();
+        jRegisterSmallCompanyButton = new javax.swing.JLabel();
+        jFatherIcon1 = new javax.swing.JLabel();
+        jMotherIcon = new javax.swing.JLabel();
+        jSonIcon = new javax.swing.JLabel();
+        jDaughterIcon = new javax.swing.JLabel();
+        jDispensesIcon1 = new javax.swing.JLabel();
+        jDispensesIcon2 = new javax.swing.JLabel();
+        jCompanyIcon1 = new javax.swing.JLabel();
+        jCompanyIcon2 = new javax.swing.JLabel();
+
+        jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DashBoard - Manage All Families");
         setLocation(new java.awt.Point(330, 90));
+        setName("Dasboard"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -109,610 +104,393 @@ public class SystemDashBoard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBackground.setBackground(new java.awt.Color(52, 61, 89));
+        roundedPanel1.setBackground(new java.awt.Color(242, 239, 189));
 
-        jHeaderBackground.setBackground(new java.awt.Color(242, 239, 189));
-
-        jRegisterFamilyBtn.setBackground(new java.awt.Color(52, 61, 89));
-        jRegisterFamilyBtn.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jRegisterFamilyBtn.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterFamilyBtn.setText("new family");
-        jRegisterFamilyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jRegisterFamilyBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRegisterFamilyBtnActionPerformed(evt);
+        jCloseBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
+        jCloseBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCloseBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCloseBtnMouseClicked(evt);
             }
         });
 
-        jDashboardTitle.setBackground(new java.awt.Color(255, 255, 255));
-        jDashboardTitle.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jDashboardTitle.setBackground(new java.awt.Color(52, 61, 89));
+        jDashboardTitle.setFont(new java.awt.Font("Poppins", 0, 21)); // NOI18N
         jDashboardTitle.setForeground(new java.awt.Color(52, 61, 89));
-        jDashboardTitle.setText("Dashboard");
+        jDashboardTitle.setText("dasboard");
 
-        javax.swing.GroupLayout jHeaderBackgroundLayout = new javax.swing.GroupLayout(jHeaderBackground);
-        jHeaderBackground.setLayout(jHeaderBackgroundLayout);
-        jHeaderBackgroundLayout.setHorizontalGroup(
-            jHeaderBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jHeaderBackgroundLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jDashboardTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
-                .addComponent(jRegisterFamilyBtn)
-                .addGap(30, 30, 30))
-        );
-        jHeaderBackgroundLayout.setVerticalGroup(
-            jHeaderBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jHeaderBackgroundLayout.createSequentialGroup()
+        jCreateNewFamilyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_icon.png"))); // NOI18N
+        jCreateNewFamilyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCreateNewFamilyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCreateNewFamilyButtonMouseClicked(evt);
+            }
+        });
+
+        roundedPanel2.setBackground(new java.awt.Color(52, 61, 89));
+
+        jNumberOfFamilesTitle.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        jNumberOfFamilesTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jNumberOfFamilesTitle.setText("Famílias");
+
+        jNumberOfFamilies.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jNumberOfFamilies.setForeground(new java.awt.Color(255, 255, 255));
+        jNumberOfFamilies.setText(Integer.toString((int)RegistrationMainScreen.numberOfRegisteredFamilies));
+
+        jFamilyIcon.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jFamilyIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jFamilyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/family_icon.png"))); // NOI18N
+
+        javax.swing.GroupLayout roundedPanel2Layout = new javax.swing.GroupLayout(roundedPanel2);
+        roundedPanel2.setLayout(roundedPanel2Layout);
+        roundedPanel2Layout.setHorizontalGroup(
+            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jHeaderBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRegisterFamilyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(jDashboardTitle))
+                .addGroup(roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundedPanel2Layout.createSequentialGroup()
+                        .addComponent(jNumberOfFamilesTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jFamilyIcon)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(roundedPanel2Layout.createSequentialGroup()
+                        .addGap(0, 70, Short.MAX_VALUE)
+                        .addComponent(jNumberOfFamilies)
+                        .addGap(20, 20, 20))))
+        );
+        roundedPanel2Layout.setVerticalGroup(
+            roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundedPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jNumberOfFamilesTitle)
+                    .addComponent(jFamilyIcon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jNumberOfFamilies)
                 .addContainerGap())
         );
 
-        jActionsBackground.setBackground(new java.awt.Color(97, 113, 162));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Actions");
-
-        jBackgroundLine.setBackground(new java.awt.Color(242, 239, 189));
-
-        javax.swing.GroupLayout jBackgroundLineLayout = new javax.swing.GroupLayout(jBackgroundLine);
-        jBackgroundLine.setLayout(jBackgroundLineLayout);
-        jBackgroundLineLayout.setHorizontalGroup(
-            jBackgroundLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jBackgroundLineLayout.setVerticalGroup(
-            jBackgroundLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-
-        jPanel1.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterFather.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterFather.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterFather.setText("Register a Father");
-        jRegisterFather.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jRegisterFather.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRegisterFatherMouseClicked(evt);
-            }
-        });
-
-        jRegisterIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_person.png"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(52, 61, 89));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterFather)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRegisterIcon)
-                .addContainerGap())
+            .addGap(0, 868, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRegisterIcon)
-                    .addComponent(jRegisterFather))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_person.png"))); // NOI18N
-
-        jRegisterMother.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterMother.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterMother.setText("Register a Mother");
-        jRegisterMother.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterMother)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRegisterIcon1)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRegisterMother)
-                    .addComponent(jRegisterIcon1))
-                .addContainerGap())
-        );
-
-        jPanel3.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_person.png"))); // NOI18N
-
-        jRegisterSon.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterSon.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterSon.setText("Register a Son");
-        jRegisterSon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterSon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRegisterIcon2)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRegisterSon)
-                    .addComponent(jRegisterIcon2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterDaughter.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterDaughter.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterDaughter.setText("Register a Daughter");
-        jRegisterDaughter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jRegisterIcon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_person.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterDaughter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRegisterIcon3)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRegisterIcon3)
-                    .addComponent(jRegisterDaughter))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jBackgroundLine1.setBackground(new java.awt.Color(242, 239, 189));
-
-        javax.swing.GroupLayout jBackgroundLine1Layout = new javax.swing.GroupLayout(jBackgroundLine1);
-        jBackgroundLine1.setLayout(jBackgroundLine1Layout);
-        jBackgroundLine1Layout.setHorizontalGroup(
-            jBackgroundLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jBackgroundLine1Layout.setVerticalGroup(
-            jBackgroundLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        jPanel6.setBackground(new java.awt.Color(78, 92, 135));
+        roundedPanel3.setBackground(new java.awt.Color(52, 61, 89));
 
-        jRegisterBankAccount.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount.setText("Bank Account For A Family");
-        jRegisterBankAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jNumberOfFamilesTitle1.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        jNumberOfFamilesTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        jNumberOfFamilesTitle1.setText("Saldo Total");
 
-        jBankIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bank_account.png"))); // NOI18N
+        jAmountMoney.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jAmountMoney.setForeground(new java.awt.Color(255, 255, 255));
+        jAmountMoney.setText("0");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jMoneyIcon.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jMoneyIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jMoneyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_icon.png"))); // NOI18N
+
+        javax.swing.GroupLayout roundedPanel3Layout = new javax.swing.GroupLayout(roundedPanel3);
+        roundedPanel3.setLayout(roundedPanel3Layout);
+        roundedPanel3Layout.setHorizontalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRegisterBankAccount)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBankIcon)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRegisterBankAccount)
-                    .addComponent(jBankIcon))
-                .addContainerGap())
-        );
-
-        jPanel8.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterBankAccount1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount1.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount1.setText("Bank Account For A Person");
-        jRegisterBankAccount1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jBankIcon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bank_account.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterBankAccount1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBankIcon3)
-                .addContainerGap())
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBankIcon3)
-                    .addComponent(jRegisterBankAccount1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jBackgroundLine3.setBackground(new java.awt.Color(242, 239, 189));
-
-        javax.swing.GroupLayout jBackgroundLine3Layout = new javax.swing.GroupLayout(jBackgroundLine3);
-        jBackgroundLine3.setLayout(jBackgroundLine3Layout);
-        jBackgroundLine3Layout.setHorizontalGroup(
-            jBackgroundLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jBackgroundLine3Layout.setVerticalGroup(
-            jBackgroundLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-
-        jPanel9.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterBankAccount3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount3.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount3.setText("Store Spent Amount of Person");
-        jRegisterBankAccount3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMoneyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_used.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterBankAccount3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jNumberOfFamilesTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jMoneyIcon)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jMoneyIcon)
-                    .addComponent(jRegisterBankAccount3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel10.setBackground(new java.awt.Color(78, 92, 135));
-
-        jRegisterBankAccount4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount4.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount4.setText("Store Spent Amount of a Family");
-        jRegisterBankAccount4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jMoneyIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_used.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterBankAccount4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jMoneyIcon1)
-                .addContainerGap())
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jMoneyIcon1)
-                    .addComponent(jRegisterBankAccount4))
+                .addComponent(jAmountMoney)
+                .addGap(20, 20, 20))
+        );
+        roundedPanel3Layout.setVerticalGroup(
+            roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jNumberOfFamilesTitle1)
+                    .addComponent(jMoneyIcon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jAmountMoney)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jActionsBackgroundLayout = new javax.swing.GroupLayout(jActionsBackground);
-        jActionsBackground.setLayout(jActionsBackgroundLayout);
-        jActionsBackgroundLayout.setHorizontalGroup(
-            jActionsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBackgroundLine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jActionsBackgroundLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBackgroundLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jBackgroundLine3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        roundedPanel4.setBackground(new java.awt.Color(52, 61, 89));
+
+        jNumberOfFamilesTitle2.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        jNumberOfFamilesTitle2.setForeground(new java.awt.Color(255, 255, 255));
+        jNumberOfFamilesTitle2.setText("Empresas");
+
+        jNumberOfCompanies.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jNumberOfCompanies.setForeground(new java.awt.Color(255, 255, 255));
+        jNumberOfCompanies.setText("0");
+
+        jCompanyIcon.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
+        jCompanyIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jCompanyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/company_icon.png"))); // NOI18N
+
+        javax.swing.GroupLayout roundedPanel4Layout = new javax.swing.GroupLayout(roundedPanel4);
+        roundedPanel4.setLayout(roundedPanel4Layout);
+        roundedPanel4Layout.setHorizontalGroup(
+            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jNumberOfCompanies)
+                .addGap(20, 20, 20))
+            .addGroup(roundedPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jNumberOfFamilesTitle2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCompanyIcon)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
-        jActionsBackgroundLayout.setVerticalGroup(
-            jActionsBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jActionsBackgroundLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBackgroundLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+        roundedPanel4Layout.setVerticalGroup(
+            roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundedPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jNumberOfFamilesTitle2)
+                    .addComponent(jCompanyIcon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jNumberOfCompanies)
+                .addContainerGap())
+        );
+
+        roundedPanel5.setBackground(new java.awt.Color(52, 61, 89));
+
+        jRegisterFatherButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterFatherButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterFatherButton.setText("Register a Father");
+        jRegisterFatherButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRegisterFatherButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRegisterFatherButtonMouseClicked(evt);
+            }
+        });
+
+        jRegisterMotherButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterMotherButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterMotherButton.setText("Register a Mother");
+        jRegisterMotherButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterSonButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterSonButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterSonButton.setText("Register a Son");
+        jRegisterSonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterDaughterButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterDaughterButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterDaughterButton.setText("Register a Daughter");
+        jRegisterDaughterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterFamilyDispensesButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterFamilyDispensesButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterFamilyDispensesButton.setText("Register Family's dispenses");
+        jRegisterFamilyDispensesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterPersonDispensesButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterPersonDispensesButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterPersonDispensesButton.setText("Register a Person dispenses");
+        jRegisterPersonDispensesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterBigCompanyButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterBigCompanyButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterBigCompanyButton.setText("Register a Big Company");
+        jRegisterBigCompanyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jRegisterSmallCompanyButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jRegisterSmallCompanyButton.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterSmallCompanyButton.setText("Register a Small Company");
+        jRegisterSmallCompanyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jFatherIcon1.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jFatherIcon1.setForeground(new java.awt.Color(255, 255, 255));
+        jFatherIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/man_icon.png"))); // NOI18N
+        jFatherIcon1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jMotherIcon.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jMotherIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jMotherIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/women_icon.png"))); // NOI18N
+        jMotherIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jSonIcon.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jSonIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jSonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/boy_icon.png"))); // NOI18N
+        jSonIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jDaughterIcon.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jDaughterIcon.setForeground(new java.awt.Color(255, 255, 255));
+        jDaughterIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/girl_icon.png"))); // NOI18N
+        jDaughterIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jDispensesIcon1.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jDispensesIcon1.setForeground(new java.awt.Color(255, 255, 255));
+        jDispensesIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_icon.png"))); // NOI18N
+        jDispensesIcon1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jDispensesIcon2.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jDispensesIcon2.setForeground(new java.awt.Color(255, 255, 255));
+        jDispensesIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/money_icon.png"))); // NOI18N
+        jDispensesIcon2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jCompanyIcon1.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jCompanyIcon1.setForeground(new java.awt.Color(255, 255, 255));
+        jCompanyIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/company_icon.png"))); // NOI18N
+        jCompanyIcon1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jCompanyIcon2.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
+        jCompanyIcon2.setForeground(new java.awt.Color(255, 255, 255));
+        jCompanyIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/company_icon.png"))); // NOI18N
+        jCompanyIcon2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout roundedPanel5Layout = new javax.swing.GroupLayout(roundedPanel5);
+        roundedPanel5.setLayout(roundedPanel5Layout);
+        roundedPanel5Layout.setHorizontalGroup(
+            roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterSmallCompanyButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCompanyIcon2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterBigCompanyButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCompanyIcon1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterPersonDispensesButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(jDispensesIcon2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterFamilyDispensesButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDispensesIcon1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterDaughterButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDaughterIcon))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterSonButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSonIcon))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterMotherButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jMotherIcon))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel5Layout.createSequentialGroup()
+                        .addComponent(jRegisterFatherButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jFatherIcon1)))
+                .addGap(27, 27, 27))
+        );
+        roundedPanel5Layout.setVerticalGroup(
+            roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel5Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterFatherButton)
+                    .addComponent(jFatherIcon1))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterMotherButton)
+                    .addComponent(jMotherIcon))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterSonButton)
+                    .addComponent(jSonIcon))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterDaughterButton)
+                    .addComponent(jDaughterIcon))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterFamilyDispensesButton)
+                    .addComponent(jDispensesIcon1))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterPersonDispensesButton)
+                    .addComponent(jDispensesIcon2))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterBigCompanyButton)
+                    .addComponent(jCompanyIcon1))
+                .addGap(22, 22, 22)
+                .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRegisterSmallCompanyButton)
+                    .addComponent(jCompanyIcon2))
+                .addGap(64, 64, 64))
+        );
+
+        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
+        roundedPanel1.setLayout(roundedPanel1Layout);
+        roundedPanel1Layout.setHorizontalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jDashboardTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCloseBtn)
+                .addGap(22, 22, 22))
+            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(roundedPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                        .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(roundedPanel1Layout.createSequentialGroup()
+                                .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(roundedPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                        .addComponent(jCreateNewFamilyButton)
+                        .addGap(32, 32, 32))))
+        );
+        roundedPanel1Layout.setVerticalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDashboardTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCloseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBackgroundLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBackgroundLine3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        jPanel7.setBackground(new java.awt.Color(78, 92, 135));
-        jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 239, 189)));
-
-        jRegisterBankAccount2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount2.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount2.setText("Families Registered");
-
-        jRegisterBankAccount5.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jRegisterBankAccount5.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount5.setText("0");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jRegisterBankAccount2)
+                .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roundedPanel1Layout.createSequentialGroup()
+                        .addComponent(roundedPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jRegisterBankAccount5)
-                        .addGap(34, 34, 34))))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterBankAccount2)
-                .addGap(18, 18, 18)
-                .addComponent(jRegisterBankAccount5)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        jBankIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bank_account.png"))); // NOI18N
-
-        jRegisterBankAccount6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount6.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount6.setText("Bank Account For A Family");
-
-        jPanel11.setBackground(new java.awt.Color(78, 92, 135));
-        jPanel11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 239, 189)));
-
-        jNumberOfRegisteredFamiliesTitle.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jNumberOfRegisteredFamiliesTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jNumberOfRegisteredFamiliesTitle.setText("Families Registered");
-
-        jNumberOfRegisteredFamilies.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jNumberOfRegisteredFamilies.setForeground(new java.awt.Color(255, 255, 255));
-        jNumberOfRegisteredFamilies.setText(Integer.toString((int)RegistrationMainScreen.numberOfRegisteredFamilies));
-
-        jBankIcon4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registered_families.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBankIcon4)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addComponent(jNumberOfRegisteredFamiliesTitle)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                        .addComponent(jNumberOfRegisteredFamilies)
-                        .addGap(34, 34, 34))))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jNumberOfRegisteredFamiliesTitle)
-                        .addGap(18, 18, 18)
-                        .addComponent(jNumberOfRegisteredFamilies))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jBankIcon4)))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        jPanel12.setBackground(new java.awt.Color(78, 92, 135));
-        jPanel12.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(242, 239, 189)));
-
-        jRegisterBankAccount9.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jRegisterBankAccount9.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount9.setText("Families Registered");
-
-        jRegisterBankAccount10.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jRegisterBankAccount10.setForeground(new java.awt.Color(255, 255, 255));
-        jRegisterBankAccount10.setText("0");
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addComponent(jRegisterBankAccount9)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addComponent(jRegisterBankAccount10)
-                        .addGap(34, 34, 34))))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRegisterBankAccount9)
-                .addGap(18, 18, 18)
-                .addComponent(jRegisterBankAccount10)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        jBankIcon5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bank_account.png"))); // NOI18N
-
-        javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
-        jBackground.setLayout(jBackgroundLayout);
-        jBackgroundLayout.setHorizontalGroup(
-            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
-                .addComponent(jActionsBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jBackgroundLayout.createSequentialGroup()
-                        .addComponent(jHeaderBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jBackgroundLayout.createSequentialGroup()
-                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jBackgroundLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(357, 357, 357))))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                    .addGroup(roundedPanel1Layout.createSequentialGroup()
+                        .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roundedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jBackgroundLayout.createSequentialGroup()
-                                .addComponent(jBankIcon2)
-                                .addGap(113, 113, 113))
-                            .addGroup(jBackgroundLayout.createSequentialGroup()
-                                .addComponent(jBankIcon5)
-                                .addGap(113, 113, 113))
-                            .addGroup(jBackgroundLayout.createSequentialGroup()
-                                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRegisterBankAccount6))
-                                .addGap(61, 61, 61))))))
-        );
-        jBackgroundLayout.setVerticalGroup(
-            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addComponent(jHeaderBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBankIcon2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jBankIcon5)
-                .addGap(42, 42, 42)
-                .addComponent(jRegisterBankAccount6)
-                .addGap(44, 44, 44))
-            .addComponent(jActionsBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCreateNewFamilyButton)
+                        .addGap(27, 27, 27))))
         );
 
-        getContentPane().add(jBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 480));
+        getContentPane().add(roundedPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRegisterFamilyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegisterFamilyBtnActionPerformed
-        // closes the current window
-        dispose();
-        // set visible the family registration window
-        new RegistrationMainScreen().setVisible(true);
-    }//GEN-LAST:event_jRegisterFamilyBtnActionPerformed
-
-    private void jRegisterFatherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegisterFatherMouseClicked
-        //asks in which family would the user like to register the father
-
-        familyToRegister = JOptionPane.showInputDialog(null, "Inform the family lastname", "Father Registration", HEIGHT);
-
-        //verifies if exists a family with the given lastname
-        //searches for 'familyToRegister' lastname in the lastname's array
-        for (int arrayPosition = 0; arrayPosition < RegistrationMainScreen.familiesLastnames.size(); arrayPosition++) {
-
-            //checks if the lastname exists in the Array
-            if (familyToRegister.equalsIgnoreCase(RegistrationMainScreen.familiesLastnames.get(arrayPosition))) {
-
-                //holds all informations related to the father
-                File fatherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
-                //verifies if the family already has a father registered
-
-                if (fatherInformation.exists()) {
-                    //shows an alert informing that isn't possible to register another father
-                    JOptionPane.showMessageDialog(null, "This Family Already Has A Father", "Error While Registering Another Father", 3);
-                } else {
-                    //closes the current window
-                    
-                    //opens the father registration window
-                }
-
-            } else {
-                //if the family wasn't found it shows an alert to the user
-                JOptionPane.showMessageDialog(null, "The Family " + familyToRegister + " wasn't found", "Error 404: Family Not Found", 1);
-            }
-        }
-
-        //verifies if the family already has a father
-    }//GEN-LAST:event_jRegisterFatherMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // allows the user to moviment the form when dragged
@@ -726,6 +504,23 @@ public class SystemDashBoard extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
+
+    private void jCloseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseBtnMouseClicked
+        // exits the system
+        System.exit(0);
+    }//GEN-LAST:event_jCloseBtnMouseClicked
+
+    private void jCreateNewFamilyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreateNewFamilyButtonMouseClicked
+        // closes the current window
+        dispose();
+        
+        //opens the RegistrationMainScreen Form
+        new RegistrationMainScreen().setVisible(true);
+    }//GEN-LAST:event_jCreateNewFamilyButtonMouseClicked
+
+    private void jRegisterFatherButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegisterFatherButtonMouseClicked
+        
+    }//GEN-LAST:event_jRegisterFatherButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -763,51 +558,40 @@ public class SystemDashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jActionsBackground;
-    private javax.swing.JPanel jBackground;
-    private javax.swing.JPanel jBackgroundLine;
-    private javax.swing.JPanel jBackgroundLine1;
-    private javax.swing.JPanel jBackgroundLine3;
-    private javax.swing.JLabel jBankIcon;
-    private javax.swing.JLabel jBankIcon2;
-    private javax.swing.JLabel jBankIcon3;
-    private javax.swing.JLabel jBankIcon4;
-    private javax.swing.JLabel jBankIcon5;
+    private javax.swing.JLabel jAmountMoney;
+    private javax.swing.JLabel jCloseBtn;
+    private javax.swing.JLabel jCompanyIcon;
+    private javax.swing.JLabel jCompanyIcon1;
+    private javax.swing.JLabel jCompanyIcon2;
+    private javax.swing.JLabel jCreateNewFamilyButton;
     private javax.swing.JLabel jDashboardTitle;
-    private javax.swing.JPanel jHeaderBackground;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jDaughterIcon;
+    private javax.swing.JLabel jDispensesIcon1;
+    private javax.swing.JLabel jDispensesIcon2;
+    private javax.swing.JLabel jFamilyIcon;
+    private javax.swing.JLabel jFatherIcon1;
     private javax.swing.JLabel jMoneyIcon;
-    private javax.swing.JLabel jMoneyIcon1;
-    private javax.swing.JLabel jNumberOfRegisteredFamilies;
-    private javax.swing.JLabel jNumberOfRegisteredFamiliesTitle;
+    private javax.swing.JLabel jMotherIcon;
+    private javax.swing.JLabel jNumberOfCompanies;
+    private javax.swing.JLabel jNumberOfFamilesTitle;
+    private javax.swing.JLabel jNumberOfFamilesTitle1;
+    private javax.swing.JLabel jNumberOfFamilesTitle2;
+    private javax.swing.JLabel jNumberOfFamilies;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel jRegisterBankAccount;
-    private javax.swing.JLabel jRegisterBankAccount1;
-    private javax.swing.JLabel jRegisterBankAccount10;
-    private javax.swing.JLabel jRegisterBankAccount2;
-    private javax.swing.JLabel jRegisterBankAccount3;
-    private javax.swing.JLabel jRegisterBankAccount4;
-    private javax.swing.JLabel jRegisterBankAccount5;
-    private javax.swing.JLabel jRegisterBankAccount6;
-    private javax.swing.JLabel jRegisterBankAccount9;
-    private javax.swing.JLabel jRegisterDaughter;
-    private javax.swing.JButton jRegisterFamilyBtn;
-    private javax.swing.JLabel jRegisterFather;
-    private javax.swing.JLabel jRegisterIcon;
-    private javax.swing.JLabel jRegisterIcon1;
-    private javax.swing.JLabel jRegisterIcon2;
-    private javax.swing.JLabel jRegisterIcon3;
-    private javax.swing.JLabel jRegisterMother;
-    private javax.swing.JLabel jRegisterSon;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jRegisterBigCompanyButton;
+    private javax.swing.JLabel jRegisterDaughterButton;
+    private javax.swing.JLabel jRegisterFamilyDispensesButton;
+    private javax.swing.JLabel jRegisterFatherButton;
+    private javax.swing.JLabel jRegisterMotherButton;
+    private javax.swing.JLabel jRegisterPersonDispensesButton;
+    private javax.swing.JLabel jRegisterSmallCompanyButton;
+    private javax.swing.JLabel jRegisterSonButton;
+    private javax.swing.JLabel jSonIcon;
+    private components.RoundedPanel roundedPanel1;
+    private components.RoundedPanel roundedPanel2;
+    private components.RoundedPanel roundedPanel3;
+    private components.RoundedPanel roundedPanel4;
+    private components.RoundedPanel roundedPanel5;
     // End of variables declaration//GEN-END:variables
 }
