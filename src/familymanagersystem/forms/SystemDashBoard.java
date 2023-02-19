@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class SystemDashBoard extends javax.swing.JFrame {
 
     static protected String familyToRegister;
-    
+
     // variables for the screen
     int xMouse;
     int yMouse;
@@ -36,7 +36,7 @@ public class SystemDashBoard extends javax.swing.JFrame {
      */
     public SystemDashBoard() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -513,13 +513,41 @@ public class SystemDashBoard extends javax.swing.JFrame {
     private void jCreateNewFamilyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreateNewFamilyButtonMouseClicked
         // closes the current window
         dispose();
-        
+
         //opens the RegistrationMainScreen Form
         new RegistrationMainScreen().setVisible(true);
     }//GEN-LAST:event_jCreateNewFamilyButtonMouseClicked
 
     private void jRegisterFatherButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegisterFatherButtonMouseClicked
-        
+        //asks in which family would the user like to register the father
+
+        familyToRegister = JOptionPane.showInputDialog(null, "Inform the family lastname", "Father Registration", HEIGHT);
+
+        //verifies if exists a family with the given lastname
+        //searches for 'familyToRegister' lastname in the lastname's array
+        for (int arrayPosition = 0; arrayPosition < RegistrationMainScreen.familiesLastnames.size(); arrayPosition++) {
+
+            //checks if the lastname exists in the Array
+            if (familyToRegister.equalsIgnoreCase(RegistrationMainScreen.familiesLastnames.get(arrayPosition))) {
+
+                //holds all informations related to the father
+                File fatherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
+                //verifies if the family already has a father registered
+
+                if (fatherInformation.exists()) {
+                    //shows an alert informing that isn't possible to register another father
+                    JOptionPane.showMessageDialog(null, "This Family Already Has A Father", "Error While Registering Another Father", 3);
+                } else {
+                    //closes the current window
+
+                    //opens the father registration window
+                }
+
+            } else {
+                //if the family wasn't found it shows an alert to the user
+                JOptionPane.showMessageDialog(null, "The Family " + familyToRegister + " wasn't found", "Error 404: Family Not Found", 1);
+            }
+        }
     }//GEN-LAST:event_jRegisterFatherButtonMouseClicked
 
     /**
