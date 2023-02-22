@@ -99,6 +99,11 @@ public class RegistrationMainScreenOptionsScreen extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Register A Daughter");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jFatherOptionPanel2Layout = new javax.swing.GroupLayout(jFatherOptionPanel2);
         jFatherOptionPanel2.setLayout(jFatherOptionPanel2Layout);
@@ -234,6 +239,12 @@ public class RegistrationMainScreenOptionsScreen extends javax.swing.JPanel {
         RegistrationMainScreenSonRegistration SonScreen = new RegistrationMainScreenSonRegistration();
         showPanel(SonScreen);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // opens the daughter registration screen
+        RegistrationMainScreenDaughterRegistration DaughterScreen = new RegistrationMainScreenDaughterRegistration();
+        showPanel(DaughterScreen);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
