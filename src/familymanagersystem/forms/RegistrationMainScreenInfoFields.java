@@ -25,7 +25,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyHood;
     static protected String familyCity;
     static protected String familyPhonenumber;
-    static protected String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
+    static protected String defaultFamilyFilePath = "C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
 
     /**
@@ -254,7 +254,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     private void setsTheNumberOfFamilies() throws IOException {
 
         //file to store the number of registered families
-        File familiesNumber = new File("C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\privateinfo.txt");
+        File familiesNumber = new File("C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\privateinfo.txt");
 
         //checks if already exists
         if (familiesNumber.exists()) {
@@ -294,7 +294,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
      */
     static protected String getsTheNumberOfFamilies() throws IOException {
         //checks if the file that holds the number of families exists
-        File familiesNumber = new File("C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\privateinfo.txt");
+        File familiesNumber = new File("C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\privateinfo.txt");
         //holds the number of families
         String numberOfFamilies = "";
 
