@@ -203,21 +203,19 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                     try {
                         if (fatherInformation.createNewFile()) {
 
-                            //creates a writer for the file
-                            FileWriter fatherInformationFileWriter = new FileWriter(fatherInformation);
-
                             //setts all values to the father class
-                            Pai.setBornDate(bornDate);
-                            Pai.setGender("Male");
-                            Pai.setName(fatherName);
-
-                            //writes all info in the file
-                            fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
-                            fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
-                            fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
-
-                            //closes the writer object
-                            fatherInformationFileWriter.close();
+                            try ( //creates a writer for the file
+                                    FileWriter fatherInformationFileWriter = new FileWriter(fatherInformation)) {
+                                //setts all values to the father class
+                                Pai.setBornDate(bornDate);
+                                Pai.setGender("Male");
+                                Pai.setName(fatherName);
+                                //writes all info in the file
+                                fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
+                                fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
+                                fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
+                                //closes the writer object
+                            }
 
                             //shows a success message
                             JOptionPane.showMessageDialog(null, "<html>The Father Was Successfully Registered !</html>", "Registration Complete", 2);
