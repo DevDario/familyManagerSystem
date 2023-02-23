@@ -1,6 +1,8 @@
 package familymanagersystem.forms;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -206,9 +208,26 @@ public class RegistrationMainScreenOptionsScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCloseIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseIconMouseClicked
-        //checks if the user already registered a father or a mother
-        // closing the window
-        System.exit(0);
+        /**
+         * The user can only close this window if he already registered a father
+         * or a mother to the family.
+         */
+
+        //holds all information related to the father
+        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
+        //holds all information related to the mother
+        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\mother.txt");
+
+        //checks if one of the above files exists in the family folder that the user created
+        if (fatherInformation.exists() || motherInformation.exists()) {
+            // closing the window
+            System.exit(0);
+        } else {
+            //the user is not allowed to close the current window
+            //shows an error message
+            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>father</strong> or a <br> <strong>mother</strong> to this family !</html>", "not allowed to close", 1);
+        }
+
     }//GEN-LAST:event_jCloseIconMouseClicked
 
     private void showPanel(JPanel p) {
