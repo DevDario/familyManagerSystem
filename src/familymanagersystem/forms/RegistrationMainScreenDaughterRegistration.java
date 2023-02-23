@@ -61,7 +61,7 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
         jBornDateField.setBackground(new java.awt.Color(22, 22, 22));
         jBornDateField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
         jBornDateField.setForeground(new java.awt.Color(255, 255, 255));
-        jBornDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jBornDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
         jBornDateField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jBornDateField.setToolTipText("Introduce the born date");
         jBornDateField.setAutoscrolls(false);
