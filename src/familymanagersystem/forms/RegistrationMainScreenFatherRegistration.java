@@ -1,7 +1,6 @@
 package familymanagersystem.forms;
 
 import familymanagersystem.Pai;
-import static familymanagersystem.forms.SystemDashBoard.familyToRegister;
 import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.JOptionPane;
@@ -205,7 +204,7 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
 
                             //setts all values to the father class
                             try ( //creates a writer for the file
-                                    FileWriter fatherInformationFileWriter = new FileWriter(fatherInformation)) {
+                                     FileWriter fatherInformationFileWriter = new FileWriter(fatherInformation)) {
                                 //setts all values to the father class
                                 Pai.setBornDate(bornDate);
                                 Pai.setGender("Male");
@@ -234,8 +233,21 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
-        // closes the system
-        System.exit(0);
+
+        //The user can only close this window if he already registered a father
+        
+        //holds all information related to the father
+        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
+
+        //checks if the father information file exists in the family folder that the user created
+        if (fatherInformation.exists()) {
+            // closing the window
+            System.exit(0);
+        } else {
+            //the user is not allowed to close the current window
+            //shows an error message
+            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>father</strong>to this family !</html>", "not allowed to close", 1);
+        }
     }//GEN-LAST:event_jcloseMouseClicked
 
     private void showPanel(JPanel p) {
