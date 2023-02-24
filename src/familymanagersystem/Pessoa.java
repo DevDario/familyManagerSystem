@@ -6,11 +6,10 @@ package familymanagersystem;
  * @since 2023
  * @version 1.0
  */
-public class Pessoa {
+public abstract class Pessoa {
     static protected String name;
     static protected String bornDate;
     static protected String gender;
-    static protected long IdNumber;
 
     public static String getName() {
         return name;
@@ -35,13 +34,4 @@ public class Pessoa {
     public static void setGender(String gender) {
         Pessoa.gender = gender;
     }
-
-    public static long getIdNumber() {
-        return IdNumber;
-    }
-
-    public static void setIdNumber(long IdNumber) {
-        Pessoa.IdNumber = IdNumber;
-    }
-    
 }
