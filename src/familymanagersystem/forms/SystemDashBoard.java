@@ -1,6 +1,8 @@
 package familymanagersystem.forms;
 
 import familymanagersystem.Familia;
+import static familymanagersystem.forms.RegistrationMainScreen.defaultFamilyFilePath;
+import static familymanagersystem.forms.RegistrationMainScreen.familyLastname;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
@@ -187,7 +189,7 @@ public class SystemDashBoard extends javax.swing.JFrame {
 
         jNumberOfFamilesTitle1.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
         jNumberOfFamilesTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        jNumberOfFamilesTitle1.setText("Saldo Total");
+        jNumberOfFamilesTitle1.setText("Total Amount");
 
         jAmountMoney.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
         jAmountMoney.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,8 +205,8 @@ public class SystemDashBoard extends javax.swing.JFrame {
             roundedPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundedPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jNumberOfFamilesTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jNumberOfFamilesTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jMoneyIcon)
                 .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel3Layout.createSequentialGroup()
@@ -228,7 +230,7 @@ public class SystemDashBoard extends javax.swing.JFrame {
 
         jNumberOfFamilesTitle2.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
         jNumberOfFamilesTitle2.setForeground(new java.awt.Color(255, 255, 255));
-        jNumberOfFamilesTitle2.setText("Empresas");
+        jNumberOfFamilesTitle2.setText("Companies");
 
         jNumberOfCompanies.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
         jNumberOfCompanies.setForeground(new java.awt.Color(255, 255, 255));
@@ -520,35 +522,33 @@ public class SystemDashBoard extends javax.swing.JFrame {
 
     private void jRegisterFatherButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegisterFatherButtonMouseClicked
         //asks in which family would the user like to register the father
-
         familyToRegister = JOptionPane.showInputDialog(null, "Inform the family lastname", "Father Registration", HEIGHT);
 
-        //verifies if exists a family with the given lastname
-        //searches for 'familyToRegister' lastname in the lastname's array
-        for (int arrayPosition = 0; arrayPosition < RegistrationMainScreen.familiesLastnames.size(); arrayPosition++) {
-            //checks if the lastname exists in the Array
-            if (familyToRegister.equalsIgnoreCase(RegistrationMainScreen.familiesLastnames.get(arrayPosition))) {
+        //searches for the folder with the given lastname
+        File familyFolder = new File(defaultFamilyFilePath + familyToRegister);
 
-                //holds all informations related to the father
-                File fatherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
-                //verifies if the family already has a father registered
+        //checks if the folder exists
+        if (familyFolder.exists()) {
 
-                if (fatherInformation.exists()) {
-                    //shows an alert informing that isn't possible to register another father
-                    JOptionPane.showMessageDialog(null, "This Family Already Has A Father", "Error While Registering Another Father", 3);
-                } else {
-                    //closes the current window
-                    dispose();
-                    //opens the father registration window
-                    new FatherRegistration().setVisible(true);
-                }
+            //holds all information related to the father
+            File fatherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
 
-            } else {
-                //if the family wasn't found it shows an alert to the user
-                JOptionPane.showMessageDialog(null, "The Family " + familyToRegister + " wasn't found", "Error 404: Family Not Found", 1);
-
+            //checks if the file already exists(if the family already has a father)
+            if (fatherInformation.exists()) {
+                JOptionPane.showMessageDialog(null, "<html>This Family already has a father !</html>","Registration Failed",2);
+            }else{
+                //closes the current window
+                dispose();
+                
+                //calls the FatherRegistration form
+                new FatherRegistration().setVisible(true);
+                
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "<html>This Family wasn't found<br>in our system, <strong>please try again</strong></html>","Error 404: Family Not Found",2);
         }
+
+
     }//GEN-LAST:event_jRegisterFatherButtonMouseClicked
 
     /**
