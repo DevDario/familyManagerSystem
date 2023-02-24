@@ -428,7 +428,7 @@ public class SystemDashBoard extends javax.swing.JFrame {
                 .addGroup(roundedPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRegisterSmallCompanyButton)
                     .addComponent(jCompanyIcon2))
-                .addGap(64, 64, 64))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
@@ -473,17 +473,17 @@ public class SystemDashBoard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundedPanel1Layout.createSequentialGroup()
-                        .addComponent(roundedPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(roundedPanel1Layout.createSequentialGroup()
                         .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(roundedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(roundedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                         .addComponent(jCreateNewFamilyButton)
-                        .addGap(27, 27, 27))))
+                        .addGap(27, 27, 27))
+                    .addGroup(roundedPanel1Layout.createSequentialGroup()
+                        .addComponent(roundedPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         getContentPane().add(roundedPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 500));
@@ -526,7 +526,6 @@ public class SystemDashBoard extends javax.swing.JFrame {
         //verifies if exists a family with the given lastname
         //searches for 'familyToRegister' lastname in the lastname's array
         for (int arrayPosition = 0; arrayPosition < RegistrationMainScreen.familiesLastnames.size(); arrayPosition++) {
-
             //checks if the lastname exists in the Array
             if (familyToRegister.equalsIgnoreCase(RegistrationMainScreen.familiesLastnames.get(arrayPosition))) {
 
@@ -539,13 +538,15 @@ public class SystemDashBoard extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "This Family Already Has A Father", "Error While Registering Another Father", 3);
                 } else {
                     //closes the current window
-
+                    dispose();
                     //opens the father registration window
+                    new FatherRegistration().setVisible(true);
                 }
 
             } else {
                 //if the family wasn't found it shows an alert to the user
                 JOptionPane.showMessageDialog(null, "The Family " + familyToRegister + " wasn't found", "Error 404: Family Not Found", 1);
+
             }
         }
     }//GEN-LAST:event_jRegisterFatherButtonMouseClicked
