@@ -387,7 +387,7 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
                                     jPhonenumberField.setText("");
 
                                     //adds the family lastname to the lastname's array
-                                    familiesLastnames.add(Familia.getFamilyLastname());
+                                    familiesLastnames.add(familyLastname);
 
                                     /**
                                      * stores the size of the lastname's array.
