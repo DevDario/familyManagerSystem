@@ -1,6 +1,0 @@
-ID:1
-Lastname:fish
-Province:Nevada
-City:LA
-Neighborhood:stMarks
-Contact:113802749
