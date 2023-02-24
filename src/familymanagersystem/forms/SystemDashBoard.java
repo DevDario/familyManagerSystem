@@ -283,6 +283,11 @@ public class SystemDashBoard extends javax.swing.JFrame {
         jRegisterMotherButton.setForeground(new java.awt.Color(255, 255, 255));
         jRegisterMotherButton.setText("Register a Mother");
         jRegisterMotherButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRegisterMotherButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRegisterMotherButtonMouseClicked(evt);
+            }
+        });
 
         jRegisterSonButton.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
         jRegisterSonButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -535,21 +540,50 @@ public class SystemDashBoard extends javax.swing.JFrame {
 
             //checks if the file already exists(if the family already has a father)
             if (fatherInformation.exists()) {
-                JOptionPane.showMessageDialog(null, "<html>This Family already has a father !</html>","Registration Failed",2);
-            }else{
+                JOptionPane.showMessageDialog(null, "<html>This Family already has a father !</html>", "Registration Failed", 2);
+            } else {
                 //closes the current window
                 dispose();
-                
+
                 //calls the FatherRegistration form
                 new FatherRegistration().setVisible(true);
-                
+
             }
         } else {
-            JOptionPane.showMessageDialog(null, "<html>This Family wasn't found<br>in our system, <strong>please try again</strong></html>","Error 404: Family Not Found",2);
+            JOptionPane.showMessageDialog(null, "<html>This Family wasn't found<br>in our system, <strong>please try again</strong></html>", "Error 404: Family Not Found", 2);
         }
 
 
     }//GEN-LAST:event_jRegisterFatherButtonMouseClicked
+
+    private void jRegisterMotherButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegisterMotherButtonMouseClicked
+        //asks in which family would the user like to register the mother
+        familyToRegister = JOptionPane.showInputDialog(null, "Inform the family lastname", "Mother Registration", HEIGHT);
+
+        //searches for the folder with the given lastname
+        File familyFolder = new File(defaultFamilyFilePath + familyToRegister);
+
+        //checks if the folder exists
+        if (familyFolder.exists()) {
+
+            //holds all information related to the mother
+            File motherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\mother.txt");
+
+            //checks if the file already exists(if the family already has a mother)
+            if (motherInformation.exists()) {
+                JOptionPane.showMessageDialog(null, "<html>This Family already has a mother !</html>", "Registration Failed", 2);
+            } else {
+                //closes the current window
+                dispose();
+
+                //calls the MotherRegistration form
+                new MotherRegistration().setVisible(true);
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "<html>This Family wasn't found<br>in our system, <strong>please try again</strong></html>", "Error 404: Family Not Found", 2);
+        }
+    }//GEN-LAST:event_jRegisterMotherButtonMouseClicked
 
     /**
      * @param args the command line arguments
