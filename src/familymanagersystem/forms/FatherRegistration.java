@@ -70,9 +70,9 @@ public class FatherRegistration extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        roundedPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        roundedPanel1.setBackground(new java.awt.Color(19, 19, 19));
 
-        roundedPanel2.setBackground(new java.awt.Color(52, 61, 89));
+        roundedPanel2.setBackground(new java.awt.Color(110, 86, 219));
 
         jFatherRegistrationTitle.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
         jFatherRegistrationTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,12 +95,13 @@ public class FatherRegistration extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        jFatherNameField.setBackground(new java.awt.Color(22, 22, 22));
         jFatherNameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jFatherNameField.setForeground(new java.awt.Color(52, 61, 89));
+        jFatherNameField.setForeground(new java.awt.Color(255, 255, 255));
         jFatherNameField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFatherNameField.setToolTipText("Introduce the name");
         jFatherNameField.setAutoscrolls(false);
-        jFatherNameField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(52, 61, 89)));
+        jFatherNameField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
         jFatherNameField.setCaretColor(new java.awt.Color(102, 102, 102));
         jFatherNameField.setMargin(new java.awt.Insets(2, 5, 2, 2));
 
@@ -112,9 +113,9 @@ public class FatherRegistration extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(242, 239, 186));
+        jButton1.setBackground(new java.awt.Color(42, 42, 42));
         jButton1.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(52, 61, 89));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Complete Registration");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,11 +132,13 @@ public class FatherRegistration extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(52, 61, 89));
+        jLabel1.setForeground(new java.awt.Color(110, 86, 219));
         jLabel1.setLabelFor(jFatherNameField);
         jLabel1.setText("Name");
 
-        jBornDateField.setForeground(new java.awt.Color(52, 61, 89));
+        jBornDateField.setBackground(new java.awt.Color(22, 22, 22));
+        jBornDateField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
+        jBornDateField.setForeground(new java.awt.Color(255, 255, 255));
         jBornDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         jBornDateField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jBornDateField.setToolTipText("Introduce the born date");
@@ -145,7 +148,7 @@ public class FatherRegistration extends javax.swing.JFrame {
         jBornDateField.setMargin(new java.awt.Insets(2, 4, 2, 2));
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(52, 61, 89));
+        jLabel2.setForeground(new java.awt.Color(110, 86, 219));
         jLabel2.setLabelFor(jFatherNameField);
         jLabel2.setText("Born Date");
 
@@ -232,7 +235,7 @@ public class FatherRegistration extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the father
-                File fatherInformation = new File(RegistrationMainScreen.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
+                File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + familyToRegister + "\\father.txt");
 
                 //checks if there's already a registered father
                 if (fatherInformation.exists()) {
