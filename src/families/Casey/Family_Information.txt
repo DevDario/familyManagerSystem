@@ -1,6 +1,0 @@
-ID:0
-Lastname:Casey
-Province:Nevada
-City:Chicago
-Neighborhood:Patrick Boulevard 7865
-Contact:116082378
