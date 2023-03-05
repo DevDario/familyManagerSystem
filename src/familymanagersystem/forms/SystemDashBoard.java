@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * use it for studyies or for teaching purposes<br>
  * as like you <strong>mention the GitHub Repository</strong><br>
  * where the project is.<br>
- * @link https://github.com/DevDario/Manager
+ * @link https://github.com/DevDario/familyManagerSystem
  */
 public class SystemDashBoard extends javax.swing.JFrame {
     
