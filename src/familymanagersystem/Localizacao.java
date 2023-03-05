@@ -2,7 +2,7 @@ package familymanagersystem;
 
 /**
  *
- * @author Dário Silva
+ * @author Dário Silva 6 Délcio Morais
  * @since 2023
  * @version 1.0
  */
