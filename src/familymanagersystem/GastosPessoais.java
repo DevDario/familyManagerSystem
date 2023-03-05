@@ -2,20 +2,20 @@ package familymanagersystem;
 
 /**
  *
- * @author Dário Silva
+ * @author Dário Silva 6 Délcio Morais
  * @since 2023
  * @version 1.0
  */
 public class GastosPessoais extends Pessoa {
-    protected float value;
+    protected Double value;
     protected String item;
     protected String date;
 
-    public float getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
