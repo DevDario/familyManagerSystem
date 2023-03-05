@@ -2,7 +2,7 @@ package familymanagersystem;
 
 /**
  *
- * @author Dário Silva
+ * @author Dário Silva & Délcio Morais
  * @since 2023
  * @version 1.0
  */
@@ -43,5 +43,5 @@ public class Familia extends Localizacao {
     public static void setFamilyLastname(String familyLastname) {
         Familia.familyLastname = familyLastname;
     }
-    
+
 }
