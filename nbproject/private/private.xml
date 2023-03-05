@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/SystemDashBoard.java</file>
-            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/MotherRegistration.java</file>
-            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/Pessoa.java</file>
-            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/FatherRegistration.java</file>
-            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/RegistrationMainScreen.java</file>
+            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/RegistrationMainScreenOptionsScreen.java</file>
+            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/RegistrationMainScreenFatherRegistration.java</file>
+            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/RegistrationMainScreenMotherRegistration.java</file>
+            <file>file:/C:/Users/Da/Documents/NetBeansProjects/familyManagerSystem/src/familymanagersystem/forms/RegistrationMainScreenInfoFields.java</file>
         </group>
     </open-files>
 </project-private>
