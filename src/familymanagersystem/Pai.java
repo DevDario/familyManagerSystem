@@ -9,16 +9,10 @@ package familymanagersystem;
 public class Pai extends Pais {
     
     public static void repairCar(){
-        System.out.println("Reparando o carro...");
+        System.out.println("Fixing the car...");
     }
     
     public static void changeLightball(){
-        System.out.println("Trocando a lâmpada");
-    }
-        
-    
-    
-    
-    
-    
+        System.out.println("Changing the lightball");
+    }   
 }
