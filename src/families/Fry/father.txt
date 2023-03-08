@@ -1,3 +1,0 @@
-Name:tomas fry
-Gender:Male
-Born Date:01/12/97

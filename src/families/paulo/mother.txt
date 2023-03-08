@@ -1,3 +1,0 @@
-Name:Maria Paulo
-Gender:Female
-Born Date:02/07/1999

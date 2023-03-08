@@ -1,6 +1,0 @@
-ID:241
-Lastname:Fry
-Province:nevada
-City:las vegas
-Neighborhood:patrick
-Contact:117553097

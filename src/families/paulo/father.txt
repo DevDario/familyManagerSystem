@@ -1,3 +1,0 @@
-Name:João Paulo
-Gender:Male
-Born Date:01/12/1998
