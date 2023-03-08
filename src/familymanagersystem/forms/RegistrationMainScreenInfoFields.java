@@ -27,6 +27,8 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyPhonenumber;
     static protected String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
+    //family password attribute/variable
+    static protected String familyPassword;
 
     /**
      * Creates new form RegistrationMainScreenInfoFields
@@ -236,6 +238,61 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jHoodFieldActionPerformed
 
+    private boolean setsFamilyPassword() throws IOException {
+
+        familyPassword = JOptionPane.showInputDialog(null, "Introduce a password", "setting password", HEIGHT);
+
+        if (familyPassword == null || familyPassword.equals(JOptionPane.CANCEL_OPTION)) {
+            //go back to familyManager screen
+            new RegistrationMainScreen().dispose();
+            new RegistrationMainScreenInfoFields().setVisible(false);
+            new FamilyManager().setVisible(true);
+
+            return false;
+        } else {
+
+            if (familyPassword.length() != 0) {
+
+                if (familyPassword.isBlank()) {
+                    JOptionPane.showMessageDialog(null, "You've to set a valid password", "Error: invalid format", 0);
+                    setsFamilyPassword();
+                } else {
+                    //creates a file that olds the password
+
+                    File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\familyPassword.txt");
+
+                    familyPasswordFile.createNewFile();
+
+                    //checks if the file were created
+                    if (familyPasswordFile.exists()) {
+
+                        //creates a writer object for the file
+                        try {
+
+                            //writes inside the created file
+                            try ( FileWriter familyPasswordWriter = new FileWriter(defaultFamilyFilePath + familyLastname + "\\familyPassword.txt")) {
+                                //writes inside the created file
+                                familyPasswordWriter.write(familyPassword);
+                                //closes the FileWriter object
+                                familyPasswordWriter.close();
+                                return true;
+                            }
+
+                        } catch (IOException e) {
+                            JOptionPane.showMessageDialog(null, "<html>We couldn't be able to save<br> the family password.<br><strong>Try again !</strong></html>", "Error while saving the password", 3);
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "You've to set a password", "Error: Empty Field", 0);
+                setsFamilyPassword();
+
+            }
+        }
+        return false;
+    }
+
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
         p.setLocation(0, 0);
@@ -363,8 +420,8 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
                                 //writtes the given data, by the user, to the file
                                 try (
-                                        /**
-                                         * creates a FileWriter Object that
+                                        /**                                         * creates a FileWriter Object that
+
                                          * allows us to write an information
                                          * inside the created file
                                          */
@@ -376,7 +433,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
                                     Localizacao.setHood(familyHood);
                                     Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
                                     Localizacao.setProvince(familyProvince);
-                                    Familia.setFamilyId((int) (Math.random()*1008));
+                                    Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
 
                                     //writtes the given data, by the user, to the file
                                     familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
