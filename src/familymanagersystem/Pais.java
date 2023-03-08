@@ -19,15 +19,19 @@ public class Pais extends Pessoa {
     }
 
     public static void goWork() {
-        System.out.println("Trabalhando...");
+        System.out.println("Working...");
     }
 
     public static void goShop() {
-        System.out.println("Fazendo compras...");
+        System.out.println("Shopping...");
     }
 
     public static void educateKids() {
-        System.out.println("Educando...");
+        System.out.println("Razing...");
+    }
+
+    public static void goToChurch() {
+        System.out.println("Going to Church...");
     }
 
 }
