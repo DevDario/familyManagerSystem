@@ -9,11 +9,6 @@ package familymanagersystem;
 public class Mae extends Pais {
     
     public static void cook(){
-        System.out.println("Conzinhando...");
+        System.out.println("Cooking...");
     }
-    
-    public static void goToChurch(){
-        System.out.println("Indo à igreja...");
-    }
-    
 }
