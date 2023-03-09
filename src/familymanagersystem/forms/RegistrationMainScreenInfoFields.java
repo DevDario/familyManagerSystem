@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JPanel;
@@ -399,84 +401,92 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
                 //checks if the phone number has 9 digits
                 if (familyPhonenumber.length() == 9 && matcher.find()) {
-                    //family registration process
-                    /**
-                     * creating a folder with the family lastname in the
-                     * {@code src/} directory
-                     */
-                    familyFolder.mkdir();
-                    //cheks if the folder was created
-                    if (familyFolder.exists()) {
-                        /**
-                         * creates a file containing all info about the family,
-                         * using the information given by the user
-                         */
-
-                        try {
-                            familyInformationFile.createNewFile();
-
-                            //checks if the file exists or if it was created
-                            if (familyInformationFile.exists()) {
-
-                                //writtes the given data, by the user, to the file
-                                try (
-                                        /**                                         * creates a FileWriter Object that
-
-                                         * allows us to write an information
-                                         * inside the created file
-                                         */
-                                         FileWriter familyInformationFileWriter = new FileWriter(familyInformationFile)) {
-
-                                    //setts all values to the 'Familia' class attributes
-                                    Familia.setFamilyLastname(familyLastname);
-                                    Localizacao.setCity(familyCity);
-                                    Localizacao.setHood(familyHood);
-                                    Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
-                                    Localizacao.setProvince(familyProvince);
-                                    Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
-
-                                    //writtes the given data, by the user, to the file
-                                    familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
-                                    familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
-                                    familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
-                                    familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
-                                    familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
-                                    familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
-
-                                    //closes the FileWriter Object
-                                    familyInformationFileWriter.close();
-
-                                    //success message
-                                    JOptionPane.showMessageDialog(null, "The Family " + Familia.getFamilyLastname() + " was successfully registered", "Family Registered", 1);
-
-                                    //clears all fields
-                                    jLastnameField.setText("");
-                                    jProvinceField.setText("");
-                                    jCityField.setText("");
-                                    jHoodField.setText("");
-                                    jPhonenumberField.setText("");
-
-                                    //adds the family(lastname) to the hasMap
-                                    families.put(families.size() + 1, familyLastname);
-
-                                    //adds 1 more family
-                                    setsTheNumberOfFamilies();
-
-                                    // opens the family registration options screen
-                                    RegistrationMainScreenOptionsScreen OptionsScreen = new RegistrationMainScreenOptionsScreen();
-                                    showPanel(OptionsScreen);
-
+                    
+                    try {
+                        if(setsFamilyPassword()==true){
+                            //family registration process
+                            /**
+                             * creating a folder with the family lastname in the
+                             * {@code src/} directory
+                             */
+                            familyFolder.mkdir();
+                            //cheks if the folder was created
+                            if (familyFolder.exists()) {
+                                /**
+                                 * creates a file containing all info about the family,
+                                 * using the information given by the user
+                                 */
+                                
+                                try {
+                                    familyInformationFile.createNewFile();
+                                    
+                                    //checks if the file exists or if it was created
+                                    if (familyInformationFile.exists()) {
+                                        
+                                        //writtes the given data, by the user, to the file
+                                        try (
+                                                /**
+                                                 * * creates a FileWriter Object that
+                                                 *
+                                                 * allows us to write an information
+                                                 * inside the created file
+                                                 */
+                                                FileWriter familyInformationFileWriter = new FileWriter(familyInformationFile)) {
+                                            
+                                            //setts all values to the 'Familia' class attributes
+                                            Familia.setFamilyLastname(familyLastname);
+                                            Localizacao.setCity(familyCity);
+                                            Localizacao.setHood(familyHood);
+                                            Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
+                                            Localizacao.setProvince(familyProvince);
+                                            Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
+                                            
+                                            //writtes the given data, by the user, to the file
+                                            familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
+                                            familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
+                                            familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
+                                            familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
+                                            familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
+                                            familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
+                                            
+                                            //closes the FileWriter Object
+                                            familyInformationFileWriter.close();
+                                            
+                                            //adds the family(lastname) to the hasMap
+                                            families.put(families.size() + 1, familyLastname);
+                                            
+                                            //adds 1 more family
+                                            setsTheNumberOfFamilies();
+                                            
+                                            //success message
+                                            JOptionPane.showMessageDialog(null, "The Family " + Familia.getFamilyLastname() + " was successfully registered", "Family Registered", 1);
+                                            
+                                            //clears all fields
+                                            jLastnameField.setText("");
+                                            jProvinceField.setText("");
+                                            jCityField.setText("");
+                                            jHoodField.setText("");
+                                            jPhonenumberField.setText("");
+                                            
+                                            // opens the family registration options screen
+                                            RegistrationMainScreenOptionsScreen OptionsScreen = new RegistrationMainScreenOptionsScreen();
+                                            showPanel(OptionsScreen);
+                                            
+                                        }
+                                        
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " Information File", "Error 404: File Not Found", 0);
+                                    }
+                                } catch (IOException e) {
+                                    JOptionPane.showMessageDialog(null, "<html>An error occurred while trying to <br> this family information file</html>", "Error while storing informations", 0);
                                 }
 
                             } else {
-                                JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " Information File", "Error 404: File Not Found", 0);
+                                JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " folder", "Error 404: Folder Not Found", 0);
                             }
-                        } catch (IOException e) {
-                            JOptionPane.showMessageDialog(null, "<html>An error occurred while trying to <br> this family information file</html>", "Error while storing informations", 0);
                         }
-
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " folder", "Error 404: Folder Not Found", 0);
+                    } catch (IOException ex) {
+                        Logger.getLogger(RegistrationMainScreenInfoFields.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "<html>Introduce 9 numerical digits for the Phone Number</html>", "Error while storing the Phone Number", 2);
