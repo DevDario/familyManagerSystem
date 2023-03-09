@@ -484,6 +484,8 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
                             } else {
                                 JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " folder", "Error 404: Folder Not Found", 0);
                             }
+                        }else{
+                            JOptionPane.showMessageDialog(null, "There was an error with the password", "Error: password required", 0);
                         }
                     } catch (IOException ex) {
                         Logger.getLogger(RegistrationMainScreenInfoFields.class.getName()).log(Level.SEVERE, null, ex);
