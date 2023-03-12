@@ -64,7 +64,6 @@ public class SystemDashBoard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(19, 19, 19));
         setLocation(new java.awt.Point(330, 90));
         setName("Dasboard"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
