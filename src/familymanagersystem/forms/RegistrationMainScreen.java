@@ -64,9 +64,9 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registration | Set up a new Family");
         setLocation(new java.awt.Point(330, 90));
         setName("Registration"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
