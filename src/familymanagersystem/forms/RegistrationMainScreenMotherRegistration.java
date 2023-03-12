@@ -31,6 +31,7 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
         jButton1 = new javax.swing.JButton();
         jformHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jclose = new javax.swing.JLabel();
         jback = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -86,6 +87,14 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mother Registration");
 
+        jclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
+        jclose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jclose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcloseMouseClicked(evt);
+            }
+        });
+
         jback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/go_back_icon.png"))); // NOI18N
         jback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +111,9 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
                 .addComponent(jback)
                 .addGap(124, 124, 124)
                 .addComponent(jLabel3)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(jclose)
+                .addContainerGap())
         );
         jformHeaderLayout.setVerticalGroup(
             jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +121,9 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
                 .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jback))
+                        .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jback)
+                            .addComponent(jclose)))
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel3)))
@@ -217,6 +230,22 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
+        //The user can only close this window if he already registered a mother
+        //holds all information related to the mother
+        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+
+        //checks if the mother information file exists in the family folder that the user created
+        if (motherInformation.exists()) {
+            // closing the window
+            System.exit(0);
+        } else {
+            //the user is not allowed to close the current window
+            //shows an error message
+            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>mother</strong> to this family !</html>", "not allowed to close", 1);
+        }
+    }//GEN-LAST:event_jcloseMouseClicked
+
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
         p.setLocation(0, 0);
@@ -244,6 +273,7 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jMotherNameField;
     private javax.swing.JLabel jback;
+    private javax.swing.JLabel jclose;
     private javax.swing.JPanel jformHeader;
     // End of variables declaration//GEN-END:variables
 }
