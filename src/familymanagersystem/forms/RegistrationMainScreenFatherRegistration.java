@@ -187,16 +187,24 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the father
-                File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
+                File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
 
-                //checks if there's already a registered father
+                //main directory for all the files related to registrated father
+                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father");
+
+                //checks if the family already has a father
                 if (fatherInformation.exists()) {
+
                     //shows an error message
                     JOptionPane.showMessageDialog(null, "<html>This Family Already Has Father</html>", "Registration Failed", 1);
                     //clears all the form fields
                     jFatherNameField.setText("");
                     jBornDateField.setText("");
+
                 } else {
+
+                    //creates the main directory
+                    info.mkdir();
 
                     //creates the file inside the given family folder
                     try {
@@ -235,9 +243,8 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
     private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
 
         //The user can only close this window if he already registered a father
-        
         //holds all information related to the father
-        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
+        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
 
         //checks if the father information file exists in the family folder that the user created
         if (fatherInformation.exists()) {
@@ -246,7 +253,7 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
         } else {
             //the user is not allowed to close the current window
             //shows an error message
-            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>father</strong>to this family !</html>", "not allowed to close", 1);
+            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>father</strong> to this family !</html>", "not allowed to close", 1);
         }
     }//GEN-LAST:event_jcloseMouseClicked
 
