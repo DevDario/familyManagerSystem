@@ -31,7 +31,6 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
         jButton1 = new javax.swing.JButton();
         jformHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jclose = new javax.swing.JLabel();
         jback = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -87,14 +86,6 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Daughter Registration");
 
-        jclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
-        jclose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jclose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcloseMouseClicked(evt);
-            }
-        });
-
         jback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/go_back_icon.png"))); // NOI18N
         jback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,9 +102,7 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
                 .addComponent(jback)
                 .addGap(117, 117, 117)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(jclose)
-                .addContainerGap())
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jformHeaderLayout.setVerticalGroup(
             jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +110,7 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
                 .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jback)
-                            .addComponent(jclose)))
+                        .addComponent(jback))
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel3)))
@@ -236,11 +223,6 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
-        // closes the system
-        System.exit(0);
-    }//GEN-LAST:event_jcloseMouseClicked
-
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
         p.setLocation(0, 0);
@@ -268,7 +250,6 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jback;
-    private javax.swing.JLabel jclose;
     private javax.swing.JPanel jformHeader;
     // End of variables declaration//GEN-END:variables
 }
