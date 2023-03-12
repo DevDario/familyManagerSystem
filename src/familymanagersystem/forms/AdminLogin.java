@@ -37,13 +37,12 @@ public class AdminLogin extends javax.swing.JFrame {
         jPasswordFieldLabel = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jClose = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admin Area | Sign in as Adminstrator");
         setBackground(new java.awt.Color(19, 19, 19));
         setLocation(new java.awt.Point(415, 100));
         setName("Admin: Login"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -94,13 +93,6 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        jClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
-        jClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
@@ -121,20 +113,13 @@ public class AdminLogin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
                 .addGap(0, 200, Short.MAX_VALUE)
                 .addComponent(jAdminLogo)
-                .addGap(160, 160, 160)
-                .addComponent(jClose)
-                .addGap(28, 28, 28))
+                .addGap(208, 208, 208))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jClose))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jAdminLogo)))
+                .addGap(31, 31, 31)
+                .addComponent(jAdminLogo)
                 .addGap(40, 40, 40)
                 .addComponent(jUsernameFieldLabel)
                 .addGap(18, 18, 18)
@@ -209,11 +194,6 @@ public class AdminLogin extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
 
-    private void jCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseMouseClicked
-        // closes the system
-        System.exit(0);
-    }//GEN-LAST:event_jCloseMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -261,7 +241,6 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jAdminLogo;
     private javax.swing.JPanel jBackground;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jClose;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPasswordFieldLabel;
     private javax.swing.JTextField jUsernameField;

@@ -47,8 +47,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     private void initComponents() {
 
         jInfoFieldsScreenBackground = new javax.swing.JPanel();
-        jCloseBackground = new javax.swing.JPanel();
-        jCloseIcon = new javax.swing.JLabel();
         jLastnameLabel = new javax.swing.JLabel();
         jLastnameField = new javax.swing.JTextField();
         jProvinceLabel = new javax.swing.JLabel();
@@ -66,35 +64,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jInfoFieldsScreenBackground.setBackground(new java.awt.Color(19, 19, 19));
-
-        jCloseBackground.setBackground(new java.awt.Color(36, 36, 36));
-        jCloseBackground.setForeground(new java.awt.Color(90, 105, 154));
-
-        jCloseIcon.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jCloseIcon.setForeground(new java.awt.Color(255, 255, 255));
-        jCloseIcon.setText("  X");
-        jCloseIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCloseIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseIconMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jCloseBackgroundLayout = new javax.swing.GroupLayout(jCloseBackground);
-        jCloseBackground.setLayout(jCloseBackgroundLayout);
-        jCloseBackgroundLayout.setHorizontalGroup(
-            jCloseBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCloseBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCloseIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jCloseBackgroundLayout.setVerticalGroup(
-            jCloseBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jCloseBackgroundLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jCloseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         jLastnameLabel.setBackground(new java.awt.Color(255, 255, 255));
         jLastnameLabel.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
@@ -178,9 +147,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         jInfoFieldsScreenBackground.setLayout(jInfoFieldsScreenBackgroundLayout);
         jInfoFieldsScreenBackgroundLayout.setHorizontalGroup(
             jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jCloseBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +166,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         jInfoFieldsScreenBackgroundLayout.setVerticalGroup(
             jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
-                .addComponent(jCloseBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(47, 47, 47)
                 .addComponent(jLastnameLabel)
                 .addGap(6, 6, 6)
                 .addComponent(jLastnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,11 +193,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
         add(jInfoFieldsScreenBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 550));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCloseIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseIconMouseClicked
-        // closing the window
-        System.exit(0);
-    }//GEN-LAST:event_jCloseIconMouseClicked
 
     private void jHoodFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoodFieldActionPerformed
         // TODO add your handling code here:
@@ -481,8 +441,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jCityField;
     private javax.swing.JLabel jCityLabel;
-    private javax.swing.JPanel jCloseBackground;
-    private javax.swing.JLabel jCloseIcon;
     private javax.swing.JTextField jHoodField;
     private javax.swing.JLabel jHoodLabel;
     private javax.swing.JPanel jInfoFieldsScreenBackground;
