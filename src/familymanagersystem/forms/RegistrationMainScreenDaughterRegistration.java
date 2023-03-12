@@ -179,46 +179,58 @@ public class RegistrationMainScreenDaughterRegistration extends javax.swing.JPan
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the daughter
-                File sonInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\" + DaughterName);
+                File daughterInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname +"\\"+ DaughterName + "\\about.txt");
 
-                //checks if there's already a registered daughter with the same given name
-                if (sonInformation.exists()) {
-                    //shows an error message
-                    JOptionPane.showMessageDialog(null, "<html>You already registered a </html>" + DaughterName, "Registration Failed", 1);
-                    //clears all the form fields
-                    jDaughterNameField.setText("");
-                    jBornDateField.setText("");
-                } else {
+                //main directory for all the files related to registrated daughter
+                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + DaughterName);
 
-                    //creates the file inside the given family folder
-                    try {
-                        if (sonInformation.createNewFile()) {
+                //creates the main directory
+                info.mkdir();
 
-                            //setts all values to the daughter(child) class
-                            try ( //creates a writer for the file
-                                    FileWriter daughterInformationFileWriter = new FileWriter(sonInformation)) {
-                                //setts all values to the daughter class
-                                Filhos.setBornDate(bornDate);
-                                Filhos.setGender("Female");
-                                Filhos.setName(DaughterName);
-                                //writes all info in the file
-                                daughterInformationFileWriter.write("Name:" + Filhos.getName() + "\n");
-                                daughterInformationFileWriter.write("Gender:" + Filhos.getGender() + "\n");
-                                daughterInformationFileWriter.write("Born Date:" + Filhos.getBornDate() + "\n");
-                                //closes the writer object
-                            }
+                //checks if the directory was created
+                if (info.exists()) {
 
-                            //shows a success message
-                            JOptionPane.showMessageDialog(null, DaughterName + " Was Successfully Registered !", "Registration Complete", 2);
-
-                            //clears the input fields
-                            jDaughterNameField.setText("");
-                            jBornDateField.setText("");
-                        }
-                    } catch (IOException e) {
+                    //checks if there's already a registered daughter with the same given name
+                    if (daughterInformation.exists()) {
                         //shows an error message
-                        JOptionPane.showMessageDialog(null, "<html>There's been a error while <br> <strong>trying to save the info</strong> about<br>the daughter</html>", "Registration Failed", 1);
+                        JOptionPane.showMessageDialog(null, "<html>You already registered a </html>" + DaughterName, "Registration Failed", 1);
+                        //clears all the form fields
+                        jDaughterNameField.setText("");
+                        jBornDateField.setText("");
+                    } else {
+
+                        //creates the file inside the given family folder
+                        try {
+                            if (daughterInformation.createNewFile()) {
+
+                                //setts all values to the daughter(child) class
+                                try ( //creates a writer for the file
+                                         FileWriter daughterInformationFileWriter = new FileWriter(daughterInformation)) {
+                                    //setts all values to the daughter class
+                                    Filhos.setBornDate(bornDate);
+                                    Filhos.setGender("Female");
+                                    Filhos.setName(DaughterName);
+                                    //writes all info in the file
+                                    daughterInformationFileWriter.write("Name:" + Filhos.getName() + "\n");
+                                    daughterInformationFileWriter.write("Gender:" + Filhos.getGender() + "\n");
+                                    daughterInformationFileWriter.write("Born Date:" + Filhos.getBornDate());
+                                    //closes the writer object
+                                }
+
+                                //shows a success message
+                                JOptionPane.showMessageDialog(null, DaughterName + " Was Successfully Registered !", "Registration Complete", 2);
+
+                                //clears the input fields
+                                jDaughterNameField.setText("");
+                                jBornDateField.setText("");
+                            }
+                        } catch (IOException e) {
+                            //shows an error message
+                            JOptionPane.showMessageDialog(null, "<html>There's been a error while <br> <strong>trying to save the info</strong> about<br>the daughter</html>", "Registration Failed", 1);
+                        }
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Couldn't find " + DaughterName + "info folder", "Error 404: Folder Not Found", 0);
                 }
             }
         }
