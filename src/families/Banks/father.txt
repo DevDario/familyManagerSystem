@@ -1,3 +1,0 @@
-Name:Philip Banks
-Gender:Male
-Born Date:01/08/1877

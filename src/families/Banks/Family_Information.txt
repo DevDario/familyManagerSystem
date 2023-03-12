@@ -1,6 +1,0 @@
-ID:0
-Lastname:Banks
-Province:Luanda
-City:Luanda
-Neighborhood:Benfica,Naves
-Contact:28660534
