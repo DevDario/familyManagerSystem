@@ -1,6 +1,10 @@
 package familymanagersystem.forms;
 
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import java.awt.BorderLayout;
+import java.io.File;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +25,7 @@ import javax.swing.JPanel;
  * @link https://github.com/DevDario/Manager
  */
 public class RegistrationMainScreen extends javax.swing.JFrame {
+
     //variables used to move to screen
     int xMouse;
     int yMouse;
@@ -35,7 +40,7 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
             RegistrationMainScreenInfoFields InfoFieldsScreen = new RegistrationMainScreenInfoFields();
             showPanel(InfoFieldsScreen);
         } catch (Exception e) {
-            
+
         }
     }
 
@@ -64,9 +69,9 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registration | Set up a new Family");
         setLocation(new java.awt.Point(330, 90));
         setName("Registration"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -76,6 +81,11 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,6 +197,35 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        //folder that will contain all files related to the family
+        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+
+        //main directory to save all info files related to the family
+        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+
+        //file that will contain all information related to registered family
+        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+
+        //creates a file to hold the password
+        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+
+        //checks if the above file exists
+        if (familyFolder.exists()) {
+
+            JOptionPane.showMessageDialog(null, "<html>Canceling Registration Process...</html>", "Registration Canceled", 1);
+
+            //deleting all folders and files
+            familyPasswordFile.delete();
+            familyInformationFile.delete();
+            info.delete();
+            familyFolder.delete();
+
+        }
+
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
