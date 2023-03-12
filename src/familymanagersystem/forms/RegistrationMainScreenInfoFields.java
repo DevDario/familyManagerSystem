@@ -7,8 +7,6 @@ import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JPanel;
@@ -49,8 +47,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     private void initComponents() {
 
         jInfoFieldsScreenBackground = new javax.swing.JPanel();
-        jCloseBackground = new javax.swing.JPanel();
-        jCloseIcon = new javax.swing.JLabel();
         jLastnameLabel = new javax.swing.JLabel();
         jLastnameField = new javax.swing.JTextField();
         jProvinceLabel = new javax.swing.JLabel();
@@ -68,35 +64,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jInfoFieldsScreenBackground.setBackground(new java.awt.Color(19, 19, 19));
-
-        jCloseBackground.setBackground(new java.awt.Color(36, 36, 36));
-        jCloseBackground.setForeground(new java.awt.Color(90, 105, 154));
-
-        jCloseIcon.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jCloseIcon.setForeground(new java.awt.Color(255, 255, 255));
-        jCloseIcon.setText("  X");
-        jCloseIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCloseIcon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseIconMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jCloseBackgroundLayout = new javax.swing.GroupLayout(jCloseBackground);
-        jCloseBackground.setLayout(jCloseBackgroundLayout);
-        jCloseBackgroundLayout.setHorizontalGroup(
-            jCloseBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jCloseBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCloseIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jCloseBackgroundLayout.setVerticalGroup(
-            jCloseBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jCloseBackgroundLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jCloseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         jLastnameLabel.setBackground(new java.awt.Color(255, 255, 255));
         jLastnameLabel.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
@@ -180,9 +147,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         jInfoFieldsScreenBackground.setLayout(jInfoFieldsScreenBackgroundLayout);
         jInfoFieldsScreenBackgroundLayout.setHorizontalGroup(
             jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jCloseBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +166,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         jInfoFieldsScreenBackgroundLayout.setVerticalGroup(
             jInfoFieldsScreenBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInfoFieldsScreenBackgroundLayout.createSequentialGroup()
-                .addComponent(jCloseBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(47, 47, 47)
                 .addComponent(jLastnameLabel)
                 .addGap(6, 6, 6)
                 .addComponent(jLastnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,69 +194,9 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         add(jInfoFieldsScreenBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 550));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCloseIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseIconMouseClicked
-        // closing the window
-        System.exit(0);
-    }//GEN-LAST:event_jCloseIconMouseClicked
-
     private void jHoodFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoodFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jHoodFieldActionPerformed
-
-    private boolean setsFamilyPassword() throws IOException {
-
-        familyPassword = JOptionPane.showInputDialog(null, "Introduce a password", "setting password", HEIGHT);
-
-        if (familyPassword == null || familyPassword.equals(JOptionPane.CANCEL_OPTION)) {
-            //go back to familyManager screen
-            new RegistrationMainScreen().dispose();
-            new RegistrationMainScreenInfoFields().setVisible(false);
-            new FamilyManager().setVisible(true);
-
-            return false;
-        } else {
-
-            if (familyPassword.length() != 0) {
-
-                if (familyPassword.isBlank()) {
-                    JOptionPane.showMessageDialog(null, "You've to set a valid password", "Error: invalid format", 0);
-                    setsFamilyPassword();
-                } else {
-                    //creates a file that olds the password
-
-                    File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\familyPassword.txt");
-
-                    familyPasswordFile.createNewFile();
-
-                    //checks if the file were created
-                    if (familyPasswordFile.exists()) {
-
-                        //creates a writer object for the file
-                        try {
-
-                            //writes inside the created file
-                            try ( FileWriter familyPasswordWriter = new FileWriter(defaultFamilyFilePath + familyLastname + "\\familyPassword.txt")) {
-                                //writes inside the created file
-                                familyPasswordWriter.write(familyPassword);
-                                //closes the FileWriter object
-                                familyPasswordWriter.close();
-                                return true;
-                            }
-
-                        } catch (IOException e) {
-                            JOptionPane.showMessageDialog(null, "<html>We couldn't be able to save<br> the family password.<br><strong>Try again !</strong></html>", "Error while saving the password", 3);
-                            return false;
-                        }
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "You've to set a password", "Error: Empty Field", 0);
-                setsFamilyPassword();
-
-            }
-        }
-        return false;
-    }
 
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
@@ -373,18 +276,21 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     private void jRegistratiobBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistratiobBtnActionPerformed
 
         //attribuing the form fields values to my attributes
-        RegistrationMainScreenInfoFields.familyLastname = jLastnameField.getText();
-        RegistrationMainScreenInfoFields.familyProvince = jProvinceField.getText();
-        RegistrationMainScreenInfoFields.familyCity = jCityField.getText();
-        RegistrationMainScreenInfoFields.familyHood = jHoodField.getText();
-        RegistrationMainScreenInfoFields.familyLastname = jLastnameField.getText();
-        RegistrationMainScreenInfoFields.familyPhonenumber = jPhonenumberField.getText();
+        familyLastname = jLastnameField.getText();
+        familyProvince = jProvinceField.getText();
+        familyCity = jCityField.getText();
+        familyHood = jHoodField.getText();
+        familyLastname = jLastnameField.getText();
+        familyPhonenumber = jPhonenumberField.getText();
 
         //folder that will contain all files related to the family
         File familyFolder = new File(defaultFamilyFilePath + familyLastname);
 
+        //main directory to save all info files related to the family
+        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+
         //file that will contain all information related to registered family
-        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\Family_Information.txt");
+        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
 
         //checks if all fields are empty
         if (familyLastname.isBlank() && familyProvince.isBlank() && familyHood.isBlank() && familyCity.isBlank() && familyPhonenumber.isEmpty()) {
@@ -401,95 +307,128 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
                 //checks if the phone number has 9 digits
                 if (familyPhonenumber.length() == 9 && matcher.find()) {
-                    
-                    try {
-                        if(setsFamilyPassword()==true){
-                            //family registration process
-                            /**
-                             * creating a folder with the family lastname in the
-                             * {@code src/} directory
-                             */
-                            familyFolder.mkdir();
-                            //cheks if the folder was created
-                            if (familyFolder.exists()) {
-                                /**
-                                 * creates a file containing all info about the family,
-                                 * using the information given by the user
-                                 */
-                                
-                                try {
-                                    familyInformationFile.createNewFile();
-                                    
-                                    //checks if the file exists or if it was created
-                                    if (familyInformationFile.exists()) {
-                                        
-                                        //writtes the given data, by the user, to the file
-                                        try (
-                                                /**
-                                                 * * creates a FileWriter Object that
-                                                 *
-                                                 * allows us to write an information
-                                                 * inside the created file
-                                                 */
-                                                FileWriter familyInformationFileWriter = new FileWriter(familyInformationFile)) {
-                                            
-                                            //setts all values to the 'Familia' class attributes
-                                            Familia.setFamilyLastname(familyLastname);
-                                            Localizacao.setCity(familyCity);
-                                            Localizacao.setHood(familyHood);
-                                            Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
-                                            Localizacao.setProvince(familyProvince);
-                                            Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
-                                            
-                                            //writtes the given data, by the user, to the file
-                                            familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
-                                            familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
-                                            familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
-                                            familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
-                                            familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
-                                            familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
-                                            
-                                            //closes the FileWriter Object
-                                            familyInformationFileWriter.close();
-                                            
-                                            //adds the family(lastname) to the hasMap
-                                            families.put(families.size() + 1, familyLastname);
-                                            
-                                            //adds 1 more family
-                                            setsTheNumberOfFamilies();
-                                            
-                                            //success message
-                                            JOptionPane.showMessageDialog(null, "The Family " + Familia.getFamilyLastname() + " was successfully registered", "Family Registered", 1);
-                                            
-                                            //clears all fields
-                                            jLastnameField.setText("");
-                                            jProvinceField.setText("");
-                                            jCityField.setText("");
-                                            jHoodField.setText("");
-                                            jPhonenumberField.setText("");
-                                            
-                                            // opens the family registration options screen
-                                            RegistrationMainScreenOptionsScreen OptionsScreen = new RegistrationMainScreenOptionsScreen();
-                                            showPanel(OptionsScreen);
-                                            
-                                        }
-                                        
-                                    } else {
-                                        JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " Information File", "Error 404: File Not Found", 0);
-                                    }
-                                } catch (IOException e) {
-                                    JOptionPane.showMessageDialog(null, "<html>An error occurred while trying to <br> this family information file</html>", "Error while storing informations", 0);
-                                }
+                    //family registration process
+                    /**
+                     * creating a folder with the family lastname in the
+                     * {@code src/} directory
+                     */
+                    familyFolder.mkdir();
+                    //cheks if the folder was created
+                    if (familyFolder.exists()) {
 
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " folder", "Error 404: Folder Not Found", 0);
+                        //creates a folder inside the {@code familyFolder} folder
+                        info.mkdir();
+
+                        if (info.exists()) {
+
+                            /**
+                             * creates a file containing all info about the
+                             * family, using the information given by the user
+                             */
+                            try {
+                                familyInformationFile.createNewFile();
+
+                                //checks if the file exists or if it was created
+                                if (familyInformationFile.exists()) {
+
+                                    //writtes the given data, by the user, to the file
+                                    try (
+                                            /**
+                                             * * creates a FileWriter Object
+                                             * that allows us to write an
+                                             * information inside the created
+                                             * file
+                                             */
+                                             FileWriter familyInformationFileWriter = new FileWriter(familyInformationFile)) {
+
+                                        //setts all values to the 'Familia' class attributes
+                                        Familia.setFamilyLastname(familyLastname);
+                                        Localizacao.setCity(familyCity);
+                                        Localizacao.setHood(familyHood);
+                                        Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
+                                        Localizacao.setProvince(familyProvince);
+                                        Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
+
+                                        //writtes the given data, by the user, to the file
+                                        familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
+                                        familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
+                                        familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
+                                        familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
+                                        familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
+                                        familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
+
+                                        //closes the FileWriter Object
+                                        familyInformationFileWriter.close();
+
+                                        //sets a password for the family
+                                        familyPassword = JOptionPane.showInputDialog(null, "Introduce a password", "setting password", HEIGHT);
+
+                                        if (familyPassword.length() != 0 || familyPassword != null) {
+                                            if (familyPassword.length() == 8) {
+                                                //creates a file to hold the password
+
+                                                File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+
+                                                familyPasswordFile.createNewFile();
+
+                                                if (familyPasswordFile.exists()) {
+
+                                                    try (
+                                                            //creates a file writer
+                                                             FileWriter familyPasswordFileWriter = new FileWriter(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt")) {
+
+                                                        //writes the password inside the file
+                                                        familyPasswordFileWriter.write(familyPassword);
+                                                    }
+                                                    //success message
+                                                    JOptionPane.showMessageDialog(null, "Your password was saved", "Success !", 1);
+
+                                                    //adds the family(lastname) to the hasMap
+                                                    families.put(families.size() + 1, familyLastname);
+
+                                                    //adds 1 more family
+                                                    setsTheNumberOfFamilies();
+
+                                                    //success message
+                                                    JOptionPane.showMessageDialog(null, "The Family " + Familia.getFamilyLastname() + " was successfully registered", "Family Registered", 1);
+
+                                                    //clears all fields
+                                                    jLastnameField.setText("");
+                                                    jProvinceField.setText("");
+                                                    jCityField.setText("");
+                                                    jHoodField.setText("");
+                                                    jPhonenumberField.setText("");
+
+                                                    // opens the family registration options screen
+                                                    RegistrationMainScreenOptionsScreen OptionsScreen = new RegistrationMainScreenOptionsScreen();
+                                                    showPanel(OptionsScreen);
+
+                                                }
+
+                                            } else {
+                                                JOptionPane.showMessageDialog(null, "Password must have 8 digits", "Password Error", 1);
+
+                                            }
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "There was an error while saving the password", "Password Error", 1);
+                                        }
+
+                                    }
+
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " Information File", "Error 404: File Not Found", 0);
+                                }
+                            } catch (IOException e) {
+                                JOptionPane.showMessageDialog(null, "<html>An error occurred while trying to <br> this family information file</html>", "Error while storing informations", 0);
                             }
-                        }else{
-                            JOptionPane.showMessageDialog(null, "There was an error with the password", "Error: password required", 0);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + "info folder", "Error 404: Folder Not Found", 0);
                         }
-                    } catch (IOException ex) {
-                        Logger.getLogger(RegistrationMainScreenInfoFields.class.getName()).log(Level.SEVERE, null, ex);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Couldn't find " + familyLastname + " folder", "Error 404: Folder Not Found", 0);
                     }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "<html>Introduce 9 numerical digits for the Phone Number</html>", "Error while storing the Phone Number", 2);
                 }
@@ -502,8 +441,6 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jCityField;
     private javax.swing.JLabel jCityLabel;
-    private javax.swing.JPanel jCloseBackground;
-    private javax.swing.JLabel jCloseIcon;
     private javax.swing.JTextField jHoodField;
     private javax.swing.JLabel jHoodLabel;
     private javax.swing.JPanel jInfoFieldsScreenBackground;

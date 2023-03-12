@@ -27,7 +27,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCloseBtn = new javax.swing.JLabel();
         jcompaniesPanel = new javax.swing.JPanel();
         jbusinessIcon = new javax.swing.JLabel();
         jBusinessTitle = new javax.swing.JLabel();
@@ -61,15 +60,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 32, -1, -1));
-
-        jCloseBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_dark.png"))); // NOI18N
-        jCloseBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCloseBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseBtnMouseClicked(evt);
-            }
-        });
-        add(jCloseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(733, 11, -1, -1));
 
         jcompaniesPanel.setBackground(new java.awt.Color(45, 45, 45));
         jcompaniesPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(232, 225, 68)));
@@ -262,11 +252,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
         add(jdashboardHomeScreenBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 440));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCloseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseBtnMouseClicked
-        // exits the system
-        System.exit(0);
-    }//GEN-LAST:event_jCloseBtnMouseClicked
-
     private void jamountPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jamountPanelMouseEntered
         // changes the background color
         jamountPanel.setBackground(new java.awt.Color(47, 47, 47));
@@ -300,7 +285,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBusinessTitle;
-    private javax.swing.JLabel jCloseBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

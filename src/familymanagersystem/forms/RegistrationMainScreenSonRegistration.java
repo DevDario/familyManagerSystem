@@ -31,7 +31,6 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jformHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jclose = new javax.swing.JLabel();
         jback = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -87,14 +86,6 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Son Registration");
 
-        jclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
-        jclose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jclose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcloseMouseClicked(evt);
-            }
-        });
-
         jback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/go_back_icon.png"))); // NOI18N
         jback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,9 +102,7 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
                 .addComponent(jback)
                 .addGap(139, 139, 139)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                .addComponent(jclose)
-                .addContainerGap())
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jformHeaderLayout.setVerticalGroup(
             jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +110,7 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
                 .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jback)
-                            .addComponent(jclose)))
+                        .addComponent(jback))
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel3)))
@@ -179,55 +166,62 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the son
-                File sonInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName);
+                File sonInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName + "\\about.txt");
 
-                //checks if there's already a registered son with the same given name
-                if (sonInformation.exists()) {
-                    //shows an error message
-                    JOptionPane.showMessageDialog(null, "<html>You already registered a </html>" + sonName, "Registration Failed", 1);
-                    //clears all the form fields
-                    jSonNameField.setText("");
-                    jBornDateField.setText("");
-                } else {
+                //main directory for all the files related to registrated son
+                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName);
 
-                    //creates the file inside the given family folder
-                    try {
-                        if (sonInformation.createNewFile()) {
+                //creates the main directory
+                info.mkdir();
 
-                            //setts all values to the son class
-                            try ( //creates a writer for the file
-                                    FileWriter sonInformationFileWriter = new FileWriter(sonInformation)) {
-                                //setts all values to the son class
-                                Filhos.setBornDate(bornDate);
-                                Filhos.setGender("Male");
-                                Filhos.setName(sonName);
-                                //writes all info in the file
-                                sonInformationFileWriter.write("Name:" + Filhos.getName() + "\n");
-                                sonInformationFileWriter.write("Gender:" + Filhos.getGender() + "\n");
-                                sonInformationFileWriter.write("Born Date:" + Filhos.getBornDate() + "\n");
-                                //closes the writer object
-                            }
-
-                            //shows a success message
-                            JOptionPane.showMessageDialog(null, sonName + " Was Successfully Registered !", "Registration Complete", 2);
-
-                            //clears the input fields
-                            jSonNameField.setText("");
-                            jBornDateField.setText("");
-                        }
-                    } catch (IOException e) {
+                //checks if the directory was created
+                if (info.exists()) {
+                    //checks if there's already a registered son with the same given name
+                    if (sonInformation.exists()) {
                         //shows an error message
-                        JOptionPane.showMessageDialog(null, "<html>There's been a error while <br> <strong>trying to save the info</strong> about<br>the son</html>", "Registration Failed", 1);
+                        JOptionPane.showMessageDialog(null, "<html>You already registered a </html>" + sonName, "Registration Failed", 1);
+                        //clears all the form fields
+                        jSonNameField.setText("");
+                        jBornDateField.setText("");
+                    } else {
+
+                        //creates the file inside the given family folder
+                        try {
+                            if (sonInformation.createNewFile()) {
+
+                                //setts all values to the son class
+                                try ( //creates a writer for the file
+                                         FileWriter sonInformationFileWriter = new FileWriter(sonInformation)) {
+                                    //setts all values to the son class
+                                    Filhos.setBornDate(bornDate);
+                                    Filhos.setGender("Male");
+                                    Filhos.setName(sonName);
+                                    //writes all info in the file
+                                    sonInformationFileWriter.write("Name:" + Filhos.getName() + "\n");
+                                    sonInformationFileWriter.write("Gender:" + Filhos.getGender() + "\n");
+                                    sonInformationFileWriter.write("Born Date:" + Filhos.getBornDate());
+                                    //closes the writer object
+                                    sonInformationFileWriter.close();
+                                }
+
+                                //shows a success message
+                                JOptionPane.showMessageDialog(null, sonName + " Was Successfully Registered !", "Registration Complete", 2);
+
+                                //clears the input fields
+                                jSonNameField.setText("");
+                                jBornDateField.setText("");
+                            }
+                        } catch (IOException e) {
+                            //shows an error message
+                            JOptionPane.showMessageDialog(null, "<html>There's been a error while <br> <strong>trying to save the info</strong> about<br>the son</html>", "Registration Failed", 1);
+                        }
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Couldn't find " + sonName + "info folder", "Error 404: Folder Not Found", 0);
                 }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
-        // closes the system
-        System.exit(0);
-    }//GEN-LAST:event_jcloseMouseClicked
 
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
@@ -256,7 +250,6 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jSonNameField;
     private javax.swing.JLabel jback;
-    private javax.swing.JLabel jclose;
     private javax.swing.JPanel jformHeader;
     // End of variables declaration//GEN-END:variables
 }

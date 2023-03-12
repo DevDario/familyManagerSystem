@@ -28,7 +28,6 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jCloseBtn = new javax.swing.JLabel();
         jDeleteFamilyPanel = new javax.swing.JPanel();
         jTrashIcon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,15 +60,6 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jCloseBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_dark.png"))); // NOI18N
-        jCloseBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCloseBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseBtnMouseClicked(evt);
-            }
-        });
-        add(jCloseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
 
         jDeleteFamilyPanel.setBackground(new java.awt.Color(45, 45, 45));
         jDeleteFamilyPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(226, 64, 73)));
@@ -304,22 +294,14 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
         jnewFamilyMemberPanel.setBackground(new java.awt.Color(47, 47, 47));
     }//GEN-LAST:event_jnewFamilyMemberPanelMouseEntered
 
-    private void jCloseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseBtnMouseClicked
-        // exits the system
-        System.exit(0);
-    }//GEN-LAST:event_jCloseBtnMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAddFamily;
     private javax.swing.JLabel jAddFamily1;
     private javax.swing.JLabel jAddFamilyTitle;
     private javax.swing.JLabel jAddFamilyTitle1;
-    private javax.swing.JLabel jCloseBtn;
     private javax.swing.JPanel jDeleteFamilyPanel;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jTotalAmount;
     private javax.swing.JLabel jTrashIcon;
