@@ -41,13 +41,12 @@ public class FamilyManager extends javax.swing.JFrame {
         jRegistratePanel2 = new javax.swing.JPanel();
         jAdminIcon = new javax.swing.JLabel();
         jAdminTitle = new javax.swing.JLabel();
-        jClose = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home | Manage your Family");
         setBackground(new java.awt.Color(19, 19, 19));
         setLocation(new java.awt.Point(320, 90));
         setName("Home"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -175,14 +174,6 @@ public class FamilyManager extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_dark.png"))); // NOI18N
-        jClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
@@ -198,17 +189,13 @@ public class FamilyManager extends javax.swing.JFrame {
             .addGroup(jBackgroundLayout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addComponent(jSystemLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jClose)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSystemLogo)
-                    .addComponent(jClose))
+                .addComponent(jSystemLogo)
                 .addGap(46, 46, 46)
                 .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jRegistratePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,11 +210,6 @@ public class FamilyManager extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseMouseClicked
-        // closes the system
-        System.exit(0);
-    }//GEN-LAST:event_jCloseMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // allows the user to moviment the form when dragged
@@ -296,7 +278,6 @@ public class FamilyManager extends javax.swing.JFrame {
     private javax.swing.JLabel jAdminIcon;
     private javax.swing.JLabel jAdminTitle;
     private javax.swing.JPanel jBackground;
-    private javax.swing.JLabel jClose;
     private javax.swing.JLabel jCompanyIcon;
     private javax.swing.JLabel jRegisterCompanyTitle1;
     private javax.swing.JLabel jRegisterFamilyTitle;
