@@ -15,7 +15,6 @@ import javax.swing.JPanel;
  */
 public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel {
 
-
     public RegistrationMainScreenMotherRegistration() {
         initComponents();
     }
@@ -180,16 +179,23 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the mother
-                File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\mother.txt");
+                File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
 
-                //checks if there's already a registered mother
+                //main directory for all the files related to registrated son
+                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother");
+
+                //checks if the family already has a mother
                 if (motherInformation.exists()) {
                     //shows an error message
-                    JOptionPane.showMessageDialog(null, "<html>This Family Already Has a Mother</html>", "Registration Failed", 1);
+                    JOptionPane.showMessageDialog(null, "<html>This Family Already Has Mother</html>", "Registration Failed", 1);
                     //clears all the form fields
                     jMotherNameField.setText("");
                     jBornDateField.setText("");
+
                 } else {
+
+                    //creates the main directory
+                    info.mkdir();
 
                     //creates the file inside the given family folder
                     try {
@@ -197,7 +203,7 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
 
                             //setts all values to the mother class
                             try ( //creates a writer for the file
-                                    FileWriter motherInformationFileWriter = new FileWriter(motherInformation)) {
+                                     FileWriter motherInformationFileWriter = new FileWriter(motherInformation)) {
                                 //setts all values to the mother class
                                 Mae.setBornDate(bornDate);
                                 Mae.setGender("Female");
@@ -225,8 +231,19 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
-        // closes the system
-        System.exit(0);
+        //The user can only close this window if he already registered a mother
+        //holds all information related to the mother
+        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+
+        //checks if the mother information file exists in the family folder that the user created
+        if (motherInformation.exists()) {
+            // closing the window
+            System.exit(0);
+        } else {
+            //the user is not allowed to close the current window
+            //shows an error message
+            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>mother</strong> to this family !</html>", "not allowed to close", 1);
+        }
     }//GEN-LAST:event_jcloseMouseClicked
 
     private void showPanel(JPanel p) {
