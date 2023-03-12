@@ -221,6 +221,7 @@ public class RegistrationMainScreenOptionsScreen extends javax.swing.JPanel {
         //checks if one of the above files exists in the family folder that the user created
         if (fatherInformation.exists() || motherInformation.exists()) {
             // closing the window
+            new RegistrationMainScreenInfoFields().setEnabled(false);
             new RegistrationMainScreenInfoFields().setVisible(false);
             new FamilyManager().setVisible(true);
         } else {
