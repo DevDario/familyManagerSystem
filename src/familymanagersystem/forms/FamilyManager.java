@@ -371,45 +371,29 @@ public class FamilyManager extends javax.swing.JFrame {
             fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
             fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
             fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
+            
+            //shows a sucess message
         }
     }
-
-    static void editMemberAge() {
-        //gets the member whose the user want to edit the age
-        String memberToEdit = JOptionPane.showInputDialog(null, "Wich member would you like to edit ?<br><html><ol><li>Father</li><li>Mother</li><li>A Son's</li></ol>", "", 1);
-
-        switch (memberToEdit) {
-            case "1":
-                editFatherName();
-                break;
-            case "2":
-                editMotherName();
-                break;
-            case "3":
-                editSonName();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
-        }
-    }
+    
     private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
         // opens a jDialog asking to the user wich option would he like to edit
-        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family Last Name</li><li>Edit a Member Age</li><li>Edit a Member Gender</li><li>Edit a Member Name</li><li>Edit Family's Location Info's</li></ol></html>", "Choose a option", 2);
+        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family's info</li><li>Edit a Father data</li><li>Edit a Mother Data</li><li>Edit a son's data</li></ol></html>", "Choose a option", 2);
 
         switch (userEditOption) {
-            case "1": {
-                try {
-                    editFamilyLastname();
-                } catch (IOException ex) {
-                    Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            break;
+            case "1":
+                //edits all info related to the family
+                
+                break;
             case "2":
-                editMemberAge();
+                break;
+            case "3":
+                break;
+            case "4":
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
+                break;
         }
     }//GEN-LAST:event_jEditDataPanelMouseClicked
 
