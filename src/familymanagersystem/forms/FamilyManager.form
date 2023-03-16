@@ -372,7 +372,7 @@
             <Component class="javax.swing.JLabel" name="jfamilyIcon1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/family_purple_icon.png"/>
+                  <Image iconType="3" name="/images/edit_family_icon.png"/>
                 </Property>
               </Properties>
             </Component>

@@ -1,5 +1,16 @@
 package familymanagersystem.forms;
 
+import familymanagersystem.Familia;
+import familymanagersystem.Localizacao;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dário Silva & Délcio Morais
@@ -186,7 +197,7 @@ public class FamilyManager extends javax.swing.JFrame {
             }
         });
 
-        jfamilyIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/family_purple_icon.png"))); // NOI18N
+        jfamilyIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit_family_icon.png"))); // NOI18N
 
         jRegisterFamilyTitle1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         jRegisterFamilyTitle1.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,7 +288,7 @@ public class FamilyManager extends javax.swing.JFrame {
     private void jRegistratePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRegistratePanelMouseClicked
         //closes the current window
         dispose();
-        
+
         //opens the registrationMainScreen form
         new RegistrationMainScreen().setVisible(true);
     }//GEN-LAST:event_jRegistratePanelMouseClicked
@@ -289,8 +300,66 @@ public class FamilyManager extends javax.swing.JFrame {
         new AdminLogin().setVisible(true);
     }//GEN-LAST:event_jRegistratePanel2MouseClicked
 
+    static void editFamilyLastname() throws IOException {
+        //gets the family directory
+        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+
+        //gets the new last name
+        String newFamilyLastname = JOptionPane.showInputDialog(null, "Inform the new lastname", "Renaming last name process", 1);
+
+        //editing the last name
+        File UpdatedfamilyFolder = new File(defaultFamilyFilePath + newFamilyLastname);
+
+        //renaming the folder
+        familyFolder.renameTo(UpdatedfamilyFolder);
+
+        //gets the familyInformation file with the path already updated
+        File familyInformationFile = new File(defaultFamilyFilePath + newFamilyLastname + "\\info" + "\\about.txt");
+
+        /*Writes all info related to the family inside the file*/
+        try (
+                /**
+                 * * creates a FileWriter Object that allows us to write an
+                 * information inside the created file
+                 */
+                 FileWriter familyInformationFileWriter = new FileWriter(familyInformationFile)) {
+
+            //setts the new last name into the class
+            Familia.setFamilyLastname(newFamilyLastname);
+
+            //writtes the given data, by the user, to the file
+            familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
+            familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
+            familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
+            familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
+            familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
+            familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
+
+            //closes the FileWriter Object
+            familyInformationFileWriter.close();
+        }
+
+        //shows a success message
+        JOptionPane.showMessageDialog(null, "Update Complete !", "Family Lastname update process", 1);
+    }
+  
     private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
-        // TODO add your handling code here:
+        // opens a jDialog asking to the user wich option would he like to edit
+        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family Last Name</li><li>Edit a Member Age</li><li>Edit a Member Gender</li><li>Edit a Member Name</li><li>Edit Family's Location Info's</li></ol></html>","Choose a option", 2);
+
+        switch (userEditOption) {
+            case "1": {
+                try {
+                    editFamilyLastname();
+                } catch (IOException ex) {
+                    Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            break;
+                
+            default:
+                JOptionPane.showMessageDialog(null, "Present a valid option !","Option not found",2);
+        }
     }//GEN-LAST:event_jEditDataPanelMouseClicked
 
     /**
