@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -370,9 +372,47 @@ public class FamilyManager extends javax.swing.JFrame {
             //writes all info in the file
             fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
             fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
-            fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
+            fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate());
 
             //shows a sucess message
+        }
+    }
+
+    static void editPhonenumber() throws IOException {
+        //gets the familyInformation file with the path already updated
+        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+
+        //gets the new phone number
+        String newPhonenumber = JOptionPane.showInputDialog(null, "Inform the new Phone Number", "Updating Phone Number", 3);
+
+        //checks if the phone number format is correct
+        Pattern pattern = Pattern.compile("[0-9]");
+        Matcher matcher = pattern.matcher(newPhonenumber);
+
+        //testing
+        if (newPhonenumber.length() == 9 && matcher.find()) {
+            //deletes the old file
+            familyInformationFile.delete();
+
+            /*creating another file*/
+            File updatedPhonenumber = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+
+            try ( //creates a file writer object for the file
+                     FileWriter updatedPhonenumberWriter = new FileWriter(updatedPhonenumber)) {
+                //sets the new phone number
+                Familia.setPhoneNumber(Integer.parseInt(newPhonenumber));
+                //writtes the given data, by the user, to the file
+                updatedPhonenumberWriter.write("ID:" + Familia.getFamilyId() + "\n");
+                updatedPhonenumberWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
+                updatedPhonenumberWriter.write("Province:" + Localizacao.getProvince() + "\n");
+                updatedPhonenumberWriter.write("City:" + Localizacao.getCity() + "\n");
+                updatedPhonenumberWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
+                updatedPhonenumberWriter.write("Contact:" + Familia.getPhoneNumber());
+                
+                //closes the FileWriter Object
+                updatedPhonenumberWriter.close();
+            }
+
         }
     }
 
@@ -392,13 +432,14 @@ public class FamilyManager extends javax.swing.JFrame {
                             Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    case "2" -> new UpdateLocalization().setVisible(true);
+                    case "2" ->
+                        new UpdateLocalization().setVisible(true);
                     default -> {
-                }
+                    }
 
                 }
-            //edit last name
-            //edit localization
+                //edit last name
+                //edit localization
                 break;
 
             case "2":
