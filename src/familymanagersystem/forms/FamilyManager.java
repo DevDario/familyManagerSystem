@@ -41,13 +41,15 @@ public class FamilyManager extends javax.swing.JFrame {
         jRegistratePanel2 = new javax.swing.JPanel();
         jAdminIcon = new javax.swing.JLabel();
         jAdminTitle = new javax.swing.JLabel();
-        jClose = new javax.swing.JLabel();
+        jEditDataPanel = new javax.swing.JPanel();
+        jfamilyIcon1 = new javax.swing.JLabel();
+        jRegisterFamilyTitle1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home | Manage your Family");
         setBackground(new java.awt.Color(19, 19, 19));
         setLocation(new java.awt.Point(320, 90));
         setName("Home"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -175,46 +177,81 @@ public class FamilyManager extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_dark.png"))); // NOI18N
-        jClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jClose.addMouseListener(new java.awt.event.MouseAdapter() {
+        jEditDataPanel.setBackground(new java.awt.Color(45, 45, 45));
+        jEditDataPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(110, 86, 219)));
+        jEditDataPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jEditDataPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCloseMouseClicked(evt);
+                jEditDataPanelMouseClicked(evt);
             }
         });
+
+        jfamilyIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/family_purple_icon.png"))); // NOI18N
+
+        jRegisterFamilyTitle1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        jRegisterFamilyTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        jRegisterFamilyTitle1.setText("Edit Family Data");
+
+        javax.swing.GroupLayout jEditDataPanelLayout = new javax.swing.GroupLayout(jEditDataPanel);
+        jEditDataPanel.setLayout(jEditDataPanelLayout);
+        jEditDataPanelLayout.setHorizontalGroup(
+            jEditDataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEditDataPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jfamilyIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+            .addGroup(jEditDataPanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jRegisterFamilyTitle1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jEditDataPanelLayout.setVerticalGroup(
+            jEditDataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEditDataPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jfamilyIcon1)
+                .addGap(18, 18, 18)
+                .addComponent(jRegisterFamilyTitle1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jRegistratePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRegistratePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRegistratePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jEditDataPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRegistratePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jRegistratePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRegistratePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jSystemLogo)))
                 .addContainerGap(88, Short.MAX_VALUE))
-            .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(jSystemLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jClose)
-                .addContainerGap())
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSystemLogo)
-                    .addComponent(jClose))
+                .addComponent(jSystemLogo)
                 .addGap(46, 46, 46)
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jRegistratePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRegistratePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRegistratePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jRegistratePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRegistratePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addComponent(jRegistratePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jEditDataPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))))
         );
 
         getContentPane().add(jBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 520));
@@ -223,11 +260,6 @@ public class FamilyManager extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCloseMouseClicked
-        // closes the system
-        System.exit(0);
-    }//GEN-LAST:event_jCloseMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // allows the user to moviment the form when dragged
@@ -256,6 +288,10 @@ public class FamilyManager extends javax.swing.JFrame {
         //opens the admin login form
         new AdminLogin().setVisible(true);
     }//GEN-LAST:event_jRegistratePanel2MouseClicked
+
+    private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jEditDataPanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,15 +332,17 @@ public class FamilyManager extends javax.swing.JFrame {
     private javax.swing.JLabel jAdminIcon;
     private javax.swing.JLabel jAdminTitle;
     private javax.swing.JPanel jBackground;
-    private javax.swing.JLabel jClose;
     private javax.swing.JLabel jCompanyIcon;
+    private javax.swing.JPanel jEditDataPanel;
     private javax.swing.JLabel jRegisterCompanyTitle1;
     private javax.swing.JLabel jRegisterFamilyTitle;
+    private javax.swing.JLabel jRegisterFamilyTitle1;
     private javax.swing.JPanel jRegistratePanel;
     private javax.swing.JPanel jRegistratePanel1;
     private javax.swing.JPanel jRegistratePanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jSystemLogo;
     private javax.swing.JLabel jfamilyIcon;
+    private javax.swing.JLabel jfamilyIcon1;
     // End of variables declaration//GEN-END:variables
 }

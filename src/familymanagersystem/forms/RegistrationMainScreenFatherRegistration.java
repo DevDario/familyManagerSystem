@@ -39,7 +39,6 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
         jButton1 = new javax.swing.JButton();
         jformHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jclose = new javax.swing.JLabel();
         jback = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -95,14 +94,6 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Father Registration");
 
-        jclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close_icon.png"))); // NOI18N
-        jclose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jclose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcloseMouseClicked(evt);
-            }
-        });
-
         jback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/go_back_icon.png"))); // NOI18N
         jback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,9 +110,7 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                 .addComponent(jback)
                 .addGap(124, 124, 124)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(jclose)
-                .addContainerGap())
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jformHeaderLayout.setVerticalGroup(
             jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,9 +118,7 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                 .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jformHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jback)
-                            .addComponent(jclose)))
+                        .addComponent(jback))
                     .addGroup(jformHeaderLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel3)))
@@ -187,16 +174,24 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the father
-                File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
+                File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
 
-                //checks if there's already a registered father
+                //main directory for all the files related to registrated father
+                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father");
+
+                //checks if the family already has a father
                 if (fatherInformation.exists()) {
+
                     //shows an error message
                     JOptionPane.showMessageDialog(null, "<html>This Family Already Has Father</html>", "Registration Failed", 1);
                     //clears all the form fields
                     jFatherNameField.setText("");
                     jBornDateField.setText("");
+
                 } else {
+
+                    //creates the main directory
+                    info.mkdir();
 
                     //creates the file inside the given family folder
                     try {
@@ -232,24 +227,6 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jcloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcloseMouseClicked
-
-        //The user can only close this window if he already registered a father
-        
-        //holds all information related to the father
-        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + "\\" + RegistrationMainScreenInfoFields.familyLastname + "\\father.txt");
-
-        //checks if the father information file exists in the family folder that the user created
-        if (fatherInformation.exists()) {
-            // closing the window
-            System.exit(0);
-        } else {
-            //the user is not allowed to close the current window
-            //shows an error message
-            JOptionPane.showMessageDialog(null, "<html>You <strong>can't close this window</strong> <br> before registering a <strong>father</strong>to this family !</html>", "not allowed to close", 1);
-        }
-    }//GEN-LAST:event_jcloseMouseClicked
-
     private void showPanel(JPanel p) {
         p.setSize(450, 550);
         p.setLocation(0, 0);
@@ -277,7 +254,6 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jback;
-    private javax.swing.JLabel jclose;
     private javax.swing.JPanel jformHeader;
     // End of variables declaration//GEN-END:variables
 }
