@@ -209,6 +209,7 @@ public class RegistrationMainScreenFatherRegistration extends javax.swing.JPanel
                                 fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
                                 fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
                                 //closes the writer object
+                                fatherInformationFileWriter.close();
                             }
 
                             //shows a success message
