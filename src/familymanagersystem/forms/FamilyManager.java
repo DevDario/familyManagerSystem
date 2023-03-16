@@ -408,12 +408,15 @@ public class FamilyManager extends javax.swing.JFrame {
                 updatedPhonenumberWriter.write("City:" + Localizacao.getCity() + "\n");
                 updatedPhonenumberWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
                 updatedPhonenumberWriter.write("Contact:" + Familia.getPhoneNumber());
-                
+
                 //closes the FileWriter Object
                 updatedPhonenumberWriter.close();
+                
+                //sucess message
+                JOptionPane.showMessageDialog(null, "Update Complete !", "Family Phone Number update process", 1);
             }
 
-        }else{
+        } else {
             //error message
             JOptionPane.showInputDialog(null, "<html>The Phone number can only contain<br>number between 0 to 9.</html>", "Error: Number Format", 1);
         }
@@ -428,21 +431,34 @@ public class FamilyManager extends javax.swing.JFrame {
                 //edits all info related to the family
                 String familyEditOption = JOptionPane.showInputDialog(null, "<html>Wich family data would you like to edit ?<br><ol><li>Edit Last name</li><li>Edit Localization</li><li>Edit Phone Number</li></ol></html>", "Choose a option", 2);
                 switch (familyEditOption) {
+                    //edit family's last name
                     case "1" -> {
                         try {
                             editFamilyLastname();
+                            break;
                         } catch (IOException ex) {
                             Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
+                    //edit family's location data
                     case "2" ->
                         new UpdateLocalization().setVisible(true);
+
+                    //edit family's phone number
+                    case "3" -> {
+                        try {
+                            editPhonenumber();
+                            break;
+                        } catch (IOException ex) {
+                            Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+
                     default -> {
+                        JOptionPane.showMessageDialog(null, "Choose a valid option !", "Option not found", 2);
                     }
 
                 }
-                //edit last name
-                //edit localization
                 break;
 
             case "2":
