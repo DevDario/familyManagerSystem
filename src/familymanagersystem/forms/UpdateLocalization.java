@@ -163,7 +163,6 @@ public class UpdateLocalization extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
 
-                FileWriter updatedLocationWriter = null;
                 try {
                     //gets the family info file
                     File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
@@ -172,7 +171,7 @@ public class UpdateLocalization extends javax.swing.JFrame {
                     /*creating another file*/
                     File updatedLocation = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
                     //creates a file writer object for the file
-                    updatedLocationWriter = new FileWriter(updatedLocation);
+                    FileWriter updatedLocationWriter = new FileWriter(updatedLocation);
                     //setts all values to the 'Familia' class attributes
                     Familia.setFamilyLastname(Familia.getFamilyLastname());
                     Localizacao.setCity(newFamilyCity);
@@ -189,12 +188,6 @@ public class UpdateLocalization extends javax.swing.JFrame {
                     updatedLocationWriter.close();
                 } catch (IOException ex) {
                     Logger.getLogger(UpdateLocalization.class.getName()).log(Level.SEVERE, null, ex);
-                } finally {
-                    try {
-                        updatedLocationWriter.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(UpdateLocalization.class.getName()).log(Level.SEVERE, null, ex);
-                    }
                 }
             }
         }
