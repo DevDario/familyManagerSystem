@@ -185,7 +185,12 @@ public class UpdateLocalization extends javax.swing.JFrame {
                         updatedLocationWriter.write("City:" + Localizacao.getCity() + "\n");
                         updatedLocationWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
                         updatedLocationWriter.write("Contact:" + Familia.getPhoneNumber());
+                        
                         //closes the FileWriter Object
+                        updatedLocationWriter.close();
+                        
+                        //sucess message
+                        JOptionPane.showMessageDialog(null, "Update Complete !", "Family Location update process", 1);
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(UpdateLocalization.class.getName()).log(Level.SEVERE, null, ex);
