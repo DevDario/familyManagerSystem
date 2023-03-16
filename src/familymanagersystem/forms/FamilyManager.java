@@ -363,27 +363,44 @@ public class FamilyManager extends javax.swing.JFrame {
             File updatedFatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
 
             //creates a file writer object for the file
-            FileWriter fatherInformationFileWriter = new FileWriter(updatedFatherInformation); 
-            
+            FileWriter fatherInformationFileWriter = new FileWriter(updatedFatherInformation);
+
             //writes inside the file
             Pai.setName(newName);
             //writes all info in the file
             fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
             fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
             fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
-            
+
             //shows a sucess message
         }
     }
-    
+
     private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
         // opens a jDialog asking to the user wich option would he like to edit
-        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family's info</li><li>Edit a Father data</li><li>Edit a Mother Data</li><li>Edit a son's data</li></ol></html>", "Choose a option", 2);
+        String userEditOption = JOptionPane.showInputDialog(null, "<html>Wich item would you like to edit ?<br><ol><li>Edit Family's info</li><li>Edit a Father data</li><li>Edit a Mother Data</li><li>Edit a son's data</li></ol></html>", "Choose a option", 2);
 
         switch (userEditOption) {
             case "1":
                 //edits all info related to the family
-                
+                String familyEditOption = JOptionPane.showInputDialog(null, "<html>Wich family data would you like to edit ?<br><ol><li>Edit Last name</li><li>Edit Localization</li><li>Edit Phone Number</li></ol></html>", "Choose a option", 2);
+                switch (familyEditOption) {
+                    //edit last name
+                    case "1": {
+                        try {
+                            editFamilyLastname();
+                        } catch (IOException ex) {
+                            Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    break;
+                    //edit localization
+                    case "2":
+                        new UpdateLocalization().setVisible(true);
+                        break;
+                    default:
+
+                }
                 break;
             case "2":
                 break;
