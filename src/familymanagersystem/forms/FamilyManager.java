@@ -343,6 +343,25 @@ public class FamilyManager extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Update Complete !", "Family Lastname update process", 1);
     }
   
+      
+    static void editMemberAge() {
+        //gets the member whose the user want to edit the age
+        String memberToEdit = JOptionPane.showInputDialog(null, "Wich member would you like to edit ?<br><html><ol><li>Father</li><li>Mother</li><li>A Son's</li></ol>", "", 1);
+        
+        switch(memberToEdit){
+            case "1":
+                editFatherName();
+                break;
+            case "2":
+                editMotherName();
+                break;
+            case "3":
+                editSonName();
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Present a valid option !","Option not found",2);
+        }
+    }
     private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
         // opens a jDialog asking to the user wich option would he like to edit
         String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family Last Name</li><li>Edit a Member Age</li><li>Edit a Member Gender</li><li>Edit a Member Name</li><li>Edit Family's Location Info's</li></ol></html>","Choose a option", 2);
@@ -356,7 +375,9 @@ public class FamilyManager extends javax.swing.JFrame {
                 }
             }
             break;
-                
+            case "2":
+                editMemberAge();
+                break;
             default:
                 JOptionPane.showMessageDialog(null, "Present a valid option !","Option not found",2);
         }
