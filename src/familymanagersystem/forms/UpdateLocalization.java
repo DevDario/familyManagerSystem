@@ -170,22 +170,23 @@ public class UpdateLocalization extends javax.swing.JFrame {
                     familyInformationFile.delete();
                     /*creating another file*/
                     File updatedLocation = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
-                    //creates a file writer object for the file
-                    FileWriter updatedLocationWriter = new FileWriter(updatedLocation);
                     //setts all values to the 'Familia' class attributes
-                    Familia.setFamilyLastname(familyLastname);
-                    Localizacao.setCity(newFamilyCity);
-                    Localizacao.setHood(newFamilyHood);
-                    Localizacao.setProvince(newFamilyProvince);
-                    //writtes the given data, by the user, to the file
-                    updatedLocationWriter.write("ID:" + Familia.getFamilyId() + "\n");
-                    updatedLocationWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
-                    updatedLocationWriter.write("Province:" + Localizacao.getProvince() + "\n");
-                    updatedLocationWriter.write("City:" + Localizacao.getCity() + "\n");
-                    updatedLocationWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
-                    updatedLocationWriter.write("Contact:" + Familia.getPhoneNumber());
-                    //closes the FileWriter Object
-                    updatedLocationWriter.close();
+                    try ( //creates a file writer object for the file
+                            FileWriter updatedLocationWriter = new FileWriter(updatedLocation)) {
+                        //setts all values to the 'Familia' class attributes
+                        Familia.setFamilyLastname(familyLastname);
+                        Localizacao.setCity(newFamilyCity);
+                        Localizacao.setHood(newFamilyHood);
+                        Localizacao.setProvince(newFamilyProvince);
+                        //writtes the given data, by the user, to the file
+                        updatedLocationWriter.write("ID:" + Familia.getFamilyId() + "\n");
+                        updatedLocationWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
+                        updatedLocationWriter.write("Province:" + Localizacao.getProvince() + "\n");
+                        updatedLocationWriter.write("City:" + Localizacao.getCity() + "\n");
+                        updatedLocationWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
+                        updatedLocationWriter.write("Contact:" + Familia.getPhoneNumber());
+                        //closes the FileWriter Object
+                    }
                 } catch (IOException ex) {
                     Logger.getLogger(UpdateLocalization.class.getName()).log(Level.SEVERE, null, ex);
                 }
