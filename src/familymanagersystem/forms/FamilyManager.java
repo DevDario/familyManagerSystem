@@ -385,23 +385,22 @@ public class FamilyManager extends javax.swing.JFrame {
                 //edits all info related to the family
                 String familyEditOption = JOptionPane.showInputDialog(null, "<html>Wich family data would you like to edit ?<br><ol><li>Edit Last name</li><li>Edit Localization</li><li>Edit Phone Number</li></ol></html>", "Choose a option", 2);
                 switch (familyEditOption) {
-                    //edit last name
-                    case "1": {
+                    case "1" -> {
                         try {
                             editFamilyLastname();
                         } catch (IOException ex) {
                             Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    break;
-                    //edit localization
-                    case "2":
-                        new UpdateLocalization().setVisible(true);
-                        break;
-                    default:
+                    case "2" -> new UpdateLocalization().setVisible(true);
+                    default -> {
+                }
 
                 }
+            //edit last name
+            //edit localization
                 break;
+
             case "2":
                 break;
             case "3":
