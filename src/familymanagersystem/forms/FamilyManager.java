@@ -5,6 +5,7 @@ import familymanagersystem.Localizacao;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import java.io.File;
+import familymanagersystem.Pai;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -342,13 +343,42 @@ public class FamilyManager extends javax.swing.JFrame {
         //shows a success message
         JOptionPane.showMessageDialog(null, "Update Complete !", "Family Lastname update process", 1);
     }
-  
-      
+
+    static void editFatherName() throws IOException {
+        //gets the father file
+        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
+
+        //gets the new name
+        String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming father process", 2);
+
+        //verifies if the father already has the name that the user introduced
+        if (Pai.getName().equalsIgnoreCase(newName)) {
+            JOptionPane.showMessageDialog(null, "The father already calls " + newName, "Process Canceled", 3);
+        } else {
+
+            //deleting old file
+            fatherInformation.delete();
+
+            /*creating another file*/
+            File updatedFatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
+
+            //creates a file writer object for the file
+            FileWriter fatherInformationFileWriter = new FileWriter(updatedFatherInformation); 
+            
+            //writes inside the file
+            Pai.setName(newName);
+            //writes all info in the file
+            fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
+            fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
+            fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate() + "\n");
+        }
+    }
+
     static void editMemberAge() {
         //gets the member whose the user want to edit the age
         String memberToEdit = JOptionPane.showInputDialog(null, "Wich member would you like to edit ?<br><html><ol><li>Father</li><li>Mother</li><li>A Son's</li></ol>", "", 1);
-        
-        switch(memberToEdit){
+
+        switch (memberToEdit) {
             case "1":
                 editFatherName();
                 break;
@@ -359,12 +389,12 @@ public class FamilyManager extends javax.swing.JFrame {
                 editSonName();
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Present a valid option !","Option not found",2);
+                JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
         }
     }
     private void jEditDataPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEditDataPanelMouseClicked
         // opens a jDialog asking to the user wich option would he like to edit
-        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family Last Name</li><li>Edit a Member Age</li><li>Edit a Member Gender</li><li>Edit a Member Name</li><li>Edit Family's Location Info's</li></ol></html>","Choose a option", 2);
+        String userEditOption = JOptionPane.showInputDialog(null, "Wich item would you like to edit ?<br><html><ol><li>Edit Family Last Name</li><li>Edit a Member Age</li><li>Edit a Member Gender</li><li>Edit a Member Name</li><li>Edit Family's Location Info's</li></ol></html>", "Choose a option", 2);
 
         switch (userEditOption) {
             case "1": {
@@ -379,7 +409,7 @@ public class FamilyManager extends javax.swing.JFrame {
                 editMemberAge();
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Present a valid option !","Option not found",2);
+                JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
         }
     }//GEN-LAST:event_jEditDataPanelMouseClicked
 
