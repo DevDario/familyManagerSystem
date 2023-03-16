@@ -413,6 +413,9 @@ public class FamilyManager extends javax.swing.JFrame {
                 updatedPhonenumberWriter.close();
             }
 
+        }else{
+            //error message
+            JOptionPane.showInputDialog(null, "<html>The Phone number can only contain<br>number between 0 to 9.</html>", "Error: Number Format", 1);
         }
     }
 
