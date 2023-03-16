@@ -173,7 +173,7 @@ public class UpdateLocalization extends javax.swing.JFrame {
                     //creates a file writer object for the file
                     FileWriter updatedLocationWriter = new FileWriter(updatedLocation);
                     //setts all values to the 'Familia' class attributes
-                    Familia.setFamilyLastname(Familia.getFamilyLastname());
+                    Familia.setFamilyLastname(familyLastname);
                     Localizacao.setCity(newFamilyCity);
                     Localizacao.setHood(newFamilyHood);
                     Localizacao.setProvince(newFamilyProvince);
