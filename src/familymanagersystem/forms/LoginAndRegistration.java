@@ -34,12 +34,12 @@ public class LoginAndRegistration extends javax.swing.JFrame {
 
         jBackground = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLastnameField = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JTextField();
         jLastnameLabel = new javax.swing.JLabel();
         jPasswordLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jPasswordField = new javax.swing.JPasswordField();
         jCreateFamilyButton = new javax.swing.JLabel();
+        jLastnameField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign up | Sign in");
@@ -52,11 +52,11 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(110, 86, 219));
         jLabel1.setText("Welcome Back !");
 
-        jLastnameField.setBackground(new java.awt.Color(22, 22, 22));
-        jLastnameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLastnameField.setForeground(new java.awt.Color(255, 255, 255));
-        jLastnameField.setToolTipText("Please fill out this field");
-        jLastnameField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
+        jPasswordField.setBackground(new java.awt.Color(22, 22, 22));
+        jPasswordField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField.setToolTipText("Please fill out this field");
+        jPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
 
         jLastnameLabel.setBackground(new java.awt.Color(255, 255, 255));
         jLastnameLabel.setFont(new java.awt.Font("Montserrat", 0, 13)); // NOI18N
@@ -73,17 +73,12 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(42, 42, 42));
         jButton1.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Complete Registration");
+        jButton1.setText("Sign In");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jPasswordField.setBackground(new java.awt.Color(22, 22, 22));
-        jPasswordField.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
 
         jCreateFamilyButton.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
         jCreateFamilyButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,6 +89,12 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                 jCreateFamilyButtonMouseClicked(evt);
             }
         });
+
+        jLastnameField.setBackground(new java.awt.Color(22, 22, 22));
+        jLastnameField.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLastnameField.setForeground(new java.awt.Color(255, 255, 255));
+        jLastnameField.setToolTipText("Please fill out this field");
+        jLastnameField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
 
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
@@ -108,10 +109,10 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLastnameLabel)
-                            .addComponent(jLastnameField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                            .addComponent(jPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                             .addComponent(jPasswordLabel)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField)))
+                            .addComponent(jLastnameField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
                     .addGroup(jBackgroundLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jCreateFamilyButton)))
@@ -124,13 +125,13 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(49, 49, 49)
                 .addComponent(jLastnameLabel)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLastnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addComponent(jPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jCreateFamilyButton)
@@ -154,8 +155,8 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     //checks if the the account exists
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String lastname = jLastnameField.getText().trim();
-        String familyPassword = jPasswordField.getPassword().toString();
+        String lastname = jPasswordField.getText().trim();
+        String familyPassword = jPasswordField.getText().trim();
 
         //tests if both field are empty
         if (lastname.isBlank() && familyPassword.isBlank()) {
@@ -248,7 +249,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jLastnameField;
     private javax.swing.JLabel jLastnameLabel;
-    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JTextField jPasswordField;
     private javax.swing.JLabel jPasswordLabel;
     // End of variables declaration//GEN-END:variables
 }
