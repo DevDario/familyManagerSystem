@@ -2,6 +2,7 @@ package familymanagersystem.forms;
 
 import familymanagersystem.Familia;
 import familymanagersystem.Localizacao;
+import familymanagersystem.Mae;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import java.io.File;
@@ -377,6 +378,39 @@ public class FamilyManager extends javax.swing.JFrame {
             //shows a sucess message
         }
     }
+    
+    static void editMotherName() throws IOException {
+        //gets the mother file
+        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+
+        //gets the new name
+        String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming mother process", 2);
+
+        //verifies if the mother already has the name that the user introduced
+        if (Mae.getName().equalsIgnoreCase(newName)) {
+            JOptionPane.showMessageDialog(null, "The mother already calls " + newName, "Process Canceled", 3);
+        } else {
+
+            //deleting old file
+            motherInformation.delete();
+
+            /*creating another file*/
+            File updatedMotherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+
+            //creates a file writer object for the file
+            FileWriter motherInformationFileWriter = new FileWriter(updatedMotherInformation);
+
+            //writes inside the file
+            Mae.setName(newName);
+            //writes all info in the file
+            motherInformationFileWriter.write("Name:" + Mae.getName() + "\n");
+            motherInformationFileWriter.write("Gender:" + Mae.getGender() + "\n");
+            motherInformationFileWriter.write("Born Date:" + Mae.getBornDate());
+
+            //shows a sucess message
+            JOptionPane.showMessageDialog(null, "Update Complete !", "Mother name update process", 1);
+        }
+    }
 
     static void editPhonenumber() throws IOException {
         //gets the familyInformation file with the path already updated
@@ -411,7 +445,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
                 //closes the FileWriter Object
                 updatedPhonenumberWriter.close();
-                
+
                 //sucess message
                 JOptionPane.showMessageDialog(null, "Update Complete !", "Family Phone Number update process", 1);
             }
@@ -462,8 +496,22 @@ public class FamilyManager extends javax.swing.JFrame {
                 break;
 
             case "2":
+                //edit father data
+                String fatherEditOption = JOptionPane.showInputDialog(null, "<html>Wich father data would you like to edit ?<br><ol><li>Edit Name</li></ol></html>", "Choose a option", 2);
+                switch (fatherEditOption) {
+                    case "1" -> {
+                        try {
+                            editFatherName();
+                        } catch (IOException ex) {
+                            Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    default -> JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
+                }
                 break;
+
             case "3":
+                //edit mother data
                 break;
             case "4":
                 break;
