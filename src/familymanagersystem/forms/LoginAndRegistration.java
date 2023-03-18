@@ -39,6 +39,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jPasswordLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPasswordField = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign up | Sign in");
@@ -84,6 +85,11 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
 
+        jLabel2.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("create family");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
@@ -100,7 +106,10 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                             .addComponent(jLastnameField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                             .addComponent(jPasswordLabel)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField))))
+                            .addComponent(jPasswordField)))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel2)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jBackgroundLayout.setVerticalGroup(
@@ -116,9 +125,11 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                 .addComponent(jPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,6 +232,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jBackground;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jLastnameField;
     private javax.swing.JLabel jLastnameLabel;
     private javax.swing.JPasswordField jPasswordField;
