@@ -154,7 +154,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     //checks if the the account exists
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String lastname = jLastnameField.getText();
+        String lastname = jLastnameField.getText().trim();
         String familyPassword = jPasswordField.getPassword().toString();
 
         //tests if both field are empty
@@ -167,7 +167,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
             } else {
                 if (familyPassword.length() == 8) {
                     //checks if there's a family with the given lastname
-                    File familyFolder = new File(defaultFamilyFilePath + lastname.trim());
+                    File familyFolder = new File(defaultFamilyFilePath + lastname);
 
                     if (familyFolder.exists()) {
                         //checks if there's a password file inside the directory
