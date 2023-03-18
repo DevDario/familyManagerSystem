@@ -60,7 +60,7 @@
                               <Component id="jLastnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jPasswordField" alignment="0" pref="325" max="32767" attributes="0"/>
                               <Component id="jPasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jSigninButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLastnameField" alignment="0" pref="325" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -87,7 +87,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPasswordField" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="jSigninButton" min="-2" pref="57" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Component id="jCreateFamilyButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -158,7 +158,7 @@
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jSigninButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2a" green="2a" red="2a" type="rgb"/>
@@ -172,7 +172,7 @@
             <Property name="text" type="java.lang.String" value="Sign In"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jSigninButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jCreateFamilyButton">

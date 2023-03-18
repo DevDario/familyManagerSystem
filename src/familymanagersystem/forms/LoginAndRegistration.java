@@ -37,7 +37,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jPasswordField = new javax.swing.JTextField();
         jLastnameLabel = new javax.swing.JLabel();
         jPasswordLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jSigninButton = new javax.swing.JButton();
         jCreateFamilyButton = new javax.swing.JLabel();
         jLastnameField = new javax.swing.JTextField();
 
@@ -70,13 +70,13 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         jPasswordLabel.setText("Family Password");
         jPasswordLabel.setFocusable(false);
 
-        jButton1.setBackground(new java.awt.Color(42, 42, 42));
-        jButton1.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Sign In");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jSigninButton.setBackground(new java.awt.Color(42, 42, 42));
+        jSigninButton.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
+        jSigninButton.setForeground(new java.awt.Color(255, 255, 255));
+        jSigninButton.setText("Sign In");
+        jSigninButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jSigninButtonActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                             .addComponent(jLastnameLabel)
                             .addComponent(jPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                             .addComponent(jPasswordLabel)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSigninButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLastnameField, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
                     .addGroup(jBackgroundLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
@@ -132,7 +132,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSigninButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jCreateFamilyButton)
                 .addContainerGap())
@@ -153,9 +153,9 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //checks if the the account exists
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jSigninButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSigninButtonActionPerformed
 
-        String lastname = jPasswordField.getText().trim();
+        String lastname = jLastnameField.getText().trim();
         String familyPassword = jPasswordField.getText().trim();
 
         //tests if both field are empty
@@ -166,40 +166,47 @@ public class LoginAndRegistration extends javax.swing.JFrame {
             if (lastname.isBlank() || familyPassword.isBlank()) {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
+                //test if the password has 8 digits
                 if (familyPassword.length() == 8) {
-                    //checks if there's a family with the given lastname
+                    //gets the family folder
                     File familyFolder = new File(defaultFamilyFilePath + lastname);
 
+                    //test if the folder exists
                     if (familyFolder.exists()) {
-                        //checks if there's a password file inside the directory
-                        File familyPasswordFile = new File(defaultFamilyFilePath + lastname + "\\familyPassword.txt");
+                        //gets the familyPassword file inside the `info` directory
+                        File familyPasswordFile = new File(defaultFamilyFilePath + lastname + "\\info" + "\\familyPassword.txt");
 
-                        if (familyPasswordFile.exists()) {
-                            //reads the content(password) inside the file
-                            Scanner passwordReader = new Scanner(defaultFamilyFilePath + lastname + "\\familyPassword.txt");
+                        //reads inside the file
+                        Scanner passwordReader = null;
+                        try {
+                            passwordReader = new Scanner(familyPasswordFile);
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(LoginAndRegistration.class.getName()).log(Level.SEVERE, null, ex);
+                        }
 
-                            while (passwordReader.hasNextLine()) {
-                                String fileData = passwordReader.nextLine();
-                                //compares data
-                                if (fileData.equals(familyPassword)) {
-                                    //enters the system
-                                    dispose();
-                                    new FamilyManager().setVisible(true);
-                                }
+                        while (passwordReader.hasNextLine()) {
+                            String passwordFromFile = passwordReader.nextLine();
 
-                            }//else
-                            JOptionPane.showMessageDialog(null, "Data provided isn't correct", "Password or Lastname Wrong", 3);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Family" + lastname + " it's irregular !", "Error: Irregular family found", 0);
+                            //tests if the `passwordFromFile` matches the given one from the user
+                            if(passwordFromFile.equalsIgnoreCase(familyPassword)){
+                                //enters the system
+                                dispose();
+                                new FamilyManager().setVisible(true);
+                            }else{
+                                //shows a error message
+                                JOptionPane.showMessageDialog(null,"Your password is incorrect !","Wrong Password",0);
+                            }
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "Family " + lastname + " does not exists !", "Error 404: Family NOT found", 0);
+                        JOptionPane.showMessageDialog(null, "This Family Doesn't exists", "Family Not found", 0);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "It's missing " + (8 - familyPassword.length()) + "digits", "Password must have 8 digits", 0);
                 }
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jSigninButtonActionPerformed
 
     private void jCreateFamilyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreateFamilyButtonMouseClicked
         //opens Registration Main Screen
@@ -244,12 +251,12 @@ public class LoginAndRegistration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jBackground;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jCreateFamilyButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jLastnameField;
     private javax.swing.JLabel jLastnameLabel;
     private javax.swing.JTextField jPasswordField;
     private javax.swing.JLabel jPasswordLabel;
+    private javax.swing.JButton jSigninButton;
     // End of variables declaration//GEN-END:variables
 }
