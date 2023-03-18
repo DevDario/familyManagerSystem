@@ -16,8 +16,8 @@ import java.util.logging.Logger;
  */
 public class LoginAndRegistration extends javax.swing.JFrame {
     
-    private static String familyLastname;
-    private static String familyPassword;
+    protected static String familyLastname;
+    protected static String familyPassword;
 
     /**
      * Creates new form LoginAndRegistration
