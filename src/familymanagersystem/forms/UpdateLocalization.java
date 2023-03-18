@@ -168,11 +168,11 @@ public class UpdateLocalization extends javax.swing.JFrame {
 
                 try {
                     //gets the family info file
-                    File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+                    File familyInformationFile = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
                     //deletes the old file
                     familyInformationFile.delete();
                     /*creating another file*/
-                    File updatedLocation = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+                    File updatedLocation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
                     //setts all values to the 'Familia' class attributes
                     try ( //creates a file writer object for the file
                             FileWriter updatedLocationWriter = new FileWriter(updatedLocation)) {
@@ -194,6 +194,7 @@ public class UpdateLocalization extends javax.swing.JFrame {
                         
                         //sucess message
                         JOptionPane.showMessageDialog(null, "Update Complete !", "Family Location update process", 1);
+                        dispose();
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(UpdateLocalization.class.getName()).log(Level.SEVERE, null, ex);
