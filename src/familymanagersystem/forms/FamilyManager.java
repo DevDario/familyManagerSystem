@@ -378,7 +378,7 @@ public class FamilyManager extends javax.swing.JFrame {
             //shows a sucess message
         }
     }
-    
+
     static void editMotherName() throws IOException {
         //gets the mother file
         File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
@@ -506,12 +506,25 @@ public class FamilyManager extends javax.swing.JFrame {
                             Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    default -> JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
+                    default ->
+                        JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
                 }
                 break;
 
             case "3":
-                //edit mother data
+                //edit father data
+                String motherEditOption = JOptionPane.showInputDialog(null, "<html>Wich mother data would you like to edit ?<br><ol><li>Edit Name</li></ol></html>", "Choose a option", 2);
+                switch (motherEditOption) {
+                    case "1" -> {
+                        try {
+                            editMotherName();
+                        } catch (IOException ex) {
+                            Logger.getLogger(FamilyManager.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    default ->
+                        JOptionPane.showMessageDialog(null, "Present a valid option !", "Option not found", 2);
+                }
                 break;
             case "4":
                 break;
