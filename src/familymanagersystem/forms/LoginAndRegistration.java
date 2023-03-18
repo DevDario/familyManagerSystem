@@ -81,6 +81,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
 
         jPasswordField.setBackground(new java.awt.Color(22, 22, 22));
         jPasswordField.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        jPasswordField.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(37, 37, 37)));
 
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
