@@ -167,7 +167,7 @@ public class LoginAndRegistration extends javax.swing.JFrame {
             } else {
                 if (familyPassword.length() == 8) {
                     //checks if there's a family with the given lastname
-                    File familyFolder = new File(defaultFamilyFilePath + lastname);
+                    File familyFolder = new File(defaultFamilyFilePath + lastname.trim());
 
                     if (familyFolder.exists()) {
                         //checks if there's a password file inside the directory
