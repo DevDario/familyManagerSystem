@@ -349,7 +349,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
     static void editFatherName() throws IOException {
         //gets the father file
-        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
+        File fatherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
 
         //gets the new name
         String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming father process", 2);
@@ -363,25 +363,28 @@ public class FamilyManager extends javax.swing.JFrame {
             fatherInformation.delete();
 
             /*creating another file*/
-            File updatedFatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "father" + "\\about.txt");
-
-            //creates a file writer object for the file
-            FileWriter fatherInformationFileWriter = new FileWriter(updatedFatherInformation);
+            File updatedFatherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
 
             //writes inside the file
-            Pai.setName(newName);
-            //writes all info in the file
-            fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
-            fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
-            fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate());
+            try ( //creates a file writer object for the file
+                     FileWriter fatherInformationFileWriter = new FileWriter(updatedFatherInformation)) {
+                //writes inside the file
+                Pai.setName(newName);
+                //writes all info in the file
+                fatherInformationFileWriter.write("Name:" + Pai.getName() + "\n");
+                fatherInformationFileWriter.write("Gender:" + Pai.getGender() + "\n");
+                fatherInformationFileWriter.write("Born Date:" + Pai.getBornDate());
+                //closes the writer object
+            }
 
             //shows a sucess message
+            JOptionPane.showMessageDialog(null, "Update Complete !", "Father name update process", 1);
         }
     }
 
     static void editMotherName() throws IOException {
         //gets the mother file
-        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+        File motherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
 
         //gets the new name
         String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming mother process", 2);
@@ -395,17 +398,19 @@ public class FamilyManager extends javax.swing.JFrame {
             motherInformation.delete();
 
             /*creating another file*/
-            File updatedMotherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
-
-            //creates a file writer object for the file
-            FileWriter motherInformationFileWriter = new FileWriter(updatedMotherInformation);
+            File updatedMotherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
 
             //writes inside the file
-            Mae.setName(newName);
-            //writes all info in the file
-            motherInformationFileWriter.write("Name:" + Mae.getName() + "\n");
-            motherInformationFileWriter.write("Gender:" + Mae.getGender() + "\n");
-            motherInformationFileWriter.write("Born Date:" + Mae.getBornDate());
+            try ( //creates a file writer object for the file
+                     FileWriter motherInformationFileWriter = new FileWriter(updatedMotherInformation)) {
+                //writes inside the file
+                Mae.setName(newName);
+                //writes all info in the file
+                motherInformationFileWriter.write("Name:" + Mae.getName() + "\n");
+                motherInformationFileWriter.write("Gender:" + Mae.getGender() + "\n");
+                motherInformationFileWriter.write("Born Date:" + Mae.getBornDate());
+                //closes the writer object
+            }
 
             //shows a sucess message
             JOptionPane.showMessageDialog(null, "Update Complete !", "Mother name update process", 1);
@@ -429,7 +434,7 @@ public class FamilyManager extends javax.swing.JFrame {
             familyInformationFile.delete();
 
             /*creating another file*/
-            File updatedPhonenumber = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+            File updatedPhonenumber = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
 
             try ( //creates a file writer object for the file
                      FileWriter updatedPhonenumberWriter = new FileWriter(updatedPhonenumber)) {
