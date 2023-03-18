@@ -24,6 +24,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyProvince;
     static protected String familyHood;
     static protected String familyCity;
+    static protected int familyId=0;
     static protected String familyPhonenumber;
     static protected String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
@@ -347,7 +348,9 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
                                         Localizacao.setHood(familyHood);
                                         Familia.setPhoneNumber(Integer.parseInt(familyPhonenumber));
                                         Localizacao.setProvince(familyProvince);
-                                        Familia.setFamilyId((int) (Math.random() * Math.random() + Math.random()));
+                                        //generated id
+                                        familyId = (int) (Math.random() * Math.random() + Math.random());
+                                        Familia.setFamilyId(familyId);
 
                                         //writtes the given data, by the user, to the file
                                         familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
