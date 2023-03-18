@@ -15,6 +15,9 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 public class LoginAndRegistration extends javax.swing.JFrame {
+    
+    private static String familyLastname;
+    private static String familyPassword;
 
     /**
      * Creates new form LoginAndRegistration
@@ -155,26 +158,26 @@ public class LoginAndRegistration extends javax.swing.JFrame {
     //checks if the the account exists
     private void jSigninButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSigninButtonActionPerformed
 
-        String lastname = jLastnameField.getText().trim();
-        String familyPassword = jPasswordField.getText().trim();
+        familyLastname = jLastnameField.getText().trim();
+        familyPassword = jPasswordField.getText().trim();
 
         //tests if both field are empty
-        if (lastname.isBlank() && familyPassword.isBlank()) {
+        if (familyLastname.isBlank() && familyPassword.isBlank()) {
             JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
         } else {
             //tests if a field is empty
-            if (lastname.isBlank() || familyPassword.isBlank()) {
+            if (familyLastname.isBlank() || familyPassword.isBlank()) {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //test if the password has 8 digits
                 if (familyPassword.length() == 8) {
                     //gets the family folder
-                    File familyFolder = new File(defaultFamilyFilePath + lastname);
+                    File familyFolder = new File(defaultFamilyFilePath + familyLastname);
 
                     //test if the folder exists
                     if (familyFolder.exists()) {
                         //gets the familyPassword file inside the `info` directory
-                        File familyPasswordFile = new File(defaultFamilyFilePath + lastname + "\\info" + "\\familyPassword.txt");
+                        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
 
                         //reads inside the file
                         Scanner passwordReader = null;
