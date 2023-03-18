@@ -45,6 +45,9 @@ public class UpdateLocalization extends javax.swing.JFrame {
         jUpdateLocationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Edit Family's Location's Info");
+        setLocation(new java.awt.Point(390, 90));
+        setName("Update Localization Info"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jInfoFieldsScreenBackground.setBackground(new java.awt.Color(19, 19, 19));
