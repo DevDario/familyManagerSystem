@@ -1,12 +1,12 @@
 package familymanagersystem.forms;
 
-import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH;
 
 /**
  *
@@ -162,13 +162,13 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         familyPassword = jPasswordField.getText().trim();
 
         //main directory to save all info files related to the family
-        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+        File info = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info");
 
         //gets the family folder
-        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+        File familyFolder = new File(DEFAULTFAMILYFILEPATH + familyLastname);
 
         //gets the familyPassword file inside the `info` directory
-        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+        File familyPasswordFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\familyPassword.txt");
 
         //tests if both field are empty
         if (familyLastname.isBlank() && familyPassword.isBlank()) {
