@@ -59,6 +59,8 @@ public class FamilyManager extends javax.swing.JFrame {
         jEditDataPanel = new javax.swing.JPanel();
         jfamilyIcon1 = new javax.swing.JLabel();
         jRegisterFamilyTitle1 = new javax.swing.JLabel();
+        goToLoginButton = new javax.swing.JLabel();
+        goToLoginText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home | Manage your Family");
@@ -230,6 +232,18 @@ public class FamilyManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        goToLoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit_icon.png"))); // NOI18N
+
+        goToLoginText.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
+        goToLoginText.setForeground(new java.awt.Color(255, 255, 255));
+        goToLoginText.setText("Go To Login");
+        goToLoginText.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        goToLoginText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goToLoginTextMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
@@ -249,6 +263,12 @@ public class FamilyManager extends javax.swing.JFrame {
                         .addGap(333, 333, 333)
                         .addComponent(jSystemLogo)))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(goToLoginButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(goToLoginText)
+                .addGap(20, 20, 20))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,15 +278,19 @@ public class FamilyManager extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRegistratePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRegistratePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
                         .addComponent(jRegistratePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jEditDataPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))))
+                        .addGap(100, 100, 100))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jRegistratePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRegistratePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(goToLoginButton)
+                            .addComponent(goToLoginText))
+                        .addGap(20, 20, 20))))
         );
 
         getContentPane().add(jBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 520));
@@ -422,7 +446,7 @@ public class FamilyManager extends javax.swing.JFrame {
         File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
 
         //gets the new phone number
-        String newPhonenumber = JOptionPane.showInputDialog(null, "Inform the new Phone Number", "Updating Phone Number", 3);
+        String newPhonenumber = JOptionPane.showInputDialog(null, "Inform the new Phone Number", "Updating Phone Number", 2);
 
         //checks if the phone number format is correct
         Pattern pattern = Pattern.compile("[0-9]");
@@ -539,6 +563,12 @@ public class FamilyManager extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jEditDataPanelMouseClicked
 
+    private void goToLoginTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToLoginTextMouseClicked
+        // goes to login screen
+        dispose();
+        new LoginAndRegistration().setVisible(true);
+    }//GEN-LAST:event_goToLoginTextMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -570,11 +600,21 @@ public class FamilyManager extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FamilyManager().setVisible(true);
+                //initializating all values
+                Familia.setFamilyLastname(LoginAndRegistration.familyLastname);
+                Familia.setCity(RegistrationMainScreenInfoFields.familyCity);
+                Familia.setProvince(RegistrationMainScreenInfoFields.familyProvince);
+                Familia.setHood(RegistrationMainScreenInfoFields.familyHood);
+                Familia.setPhoneNumber(Integer.parseInt(RegistrationMainScreenInfoFields.familyPhonenumber));
+                Familia.setFamilyId(RegistrationMainScreenInfoFields.familyId);
+                //-----
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel goToLoginButton;
+    private javax.swing.JLabel goToLoginText;
     private javax.swing.JLabel jAdminIcon;
     private javax.swing.JLabel jAdminTitle;
     private javax.swing.JPanel jBackground;
