@@ -209,13 +209,19 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         //checks if the above file exists
         if (familyFolder.exists()) {
 
-            JOptionPane.showMessageDialog(null, "<html>Canceling Registration Process...</html>", "Registration Canceled", 1);
+            if (info.exists()) {
+                if (familyInformationFile.exists()) {
+                    if (familyPasswordFile.exists()) {
+                        JOptionPane.showMessageDialog(null, "<html>Canceling Registration Process...</html>", "Registration Canceled", 1);
 
-            //deleting all folders and files
-            familyPasswordFile.delete();
-            familyInformationFile.delete();
-            info.delete();
-            familyFolder.delete();
+                        //deleting all folders and files
+                        familyPasswordFile.delete();
+                        familyInformationFile.delete();
+                        info.delete();
+                        familyFolder.delete();
+                    }
+                }
+            }
 
         }
 
