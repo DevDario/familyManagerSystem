@@ -175,7 +175,7 @@ public class UpdateLocalization extends javax.swing.JFrame {
                     File updatedLocation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
                     //setts all values to the 'Familia' class attributes
                     try ( //creates a file writer object for the file
-                            FileWriter updatedLocationWriter = new FileWriter(updatedLocation)) {
+                             FileWriter updatedLocationWriter = new FileWriter(updatedLocation)) {
                         //setts all values to the 'Familia' class attributes
                         Familia.setFamilyLastname(familyLastname);
                         Localizacao.setCity(newFamilyCity);
@@ -188,10 +188,10 @@ public class UpdateLocalization extends javax.swing.JFrame {
                         updatedLocationWriter.write("City:" + Localizacao.getCity() + "\n");
                         updatedLocationWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
                         updatedLocationWriter.write("Contact:" + Familia.getPhoneNumber());
-                        
+
                         //closes the FileWriter Object
                         updatedLocationWriter.close();
-                        
+
                         //sucess message
                         JOptionPane.showMessageDialog(null, "Update Complete !", "Family Location update process", 1);
                         dispose();
@@ -242,6 +242,14 @@ public class UpdateLocalization extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UpdateLocalization().setVisible(true);
+                //initializating all values
+                Familia.setFamilyLastname(LoginAndRegistration.familyLastname);
+                Familia.setCity(RegistrationMainScreenInfoFields.familyCity);
+                Familia.setProvince(RegistrationMainScreenInfoFields.familyProvince);
+                Familia.setHood(RegistrationMainScreenInfoFields.familyHood);
+                Familia.setPhoneNumber(Integer.parseInt(RegistrationMainScreenInfoFields.familyPhonenumber));
+                Familia.setFamilyId(RegistrationMainScreenInfoFields.familyId);
+                //-----
             }
         });
     }
