@@ -1,4 +1,4 @@
-package familymanagersystem.forms;
+ package familymanagersystem.forms;
 
 import java.io.File;
 import familymanagersystem.Familia;
@@ -26,7 +26,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyCity;
     static protected int familyId=0;
     static protected String familyPhonenumber;
-    static final String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
+    static final String DEFAULTFAMILYFILEPATH = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
     //family password attribute/variable
     static protected String familyPassword;
@@ -285,13 +285,13 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         familyPhonenumber = jPhonenumberField.getText();
 
         //folder that will contain all files related to the family
-        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+        File familyFolder = new File(DEFAULTFAMILYFILEPATH + familyLastname);
 
         //main directory to save all info files related to the family
-        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+        File info = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info");
 
         //file that will contain all information related to registered family
-        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+        File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\about.txt");
 
         //checks if all fields are empty
         if (familyLastname.isBlank() && familyProvince.isBlank() && familyHood.isBlank() && familyCity.isBlank() && familyPhonenumber.isEmpty()) {
@@ -370,7 +370,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
                                             if (familyPassword.length() == 8) {
                                                 //creates a file to hold the password
 
-                                                File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+                                                File familyPasswordFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\familyPassword.txt");
 
                                                 familyPasswordFile.createNewFile();
 
@@ -378,7 +378,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
                                                     try (
                                                             //creates a file writer
-                                                             FileWriter familyPasswordFileWriter = new FileWriter(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt")) {
+                                                             FileWriter familyPasswordFileWriter = new FileWriter(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\familyPassword.txt")) {
 
                                                         //writes the password inside the file
                                                         familyPasswordFileWriter.write(familyPassword);
