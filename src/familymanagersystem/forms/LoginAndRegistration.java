@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 public class LoginAndRegistration extends javax.swing.JFrame {
-    
+
     protected static String familyLastname;
     protected static String familyPassword;
 
@@ -161,6 +161,15 @@ public class LoginAndRegistration extends javax.swing.JFrame {
         familyLastname = jLastnameField.getText().trim();
         familyPassword = jPasswordField.getText().trim();
 
+        //main directory to save all info files related to the family
+        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+
+        //gets the family folder
+        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+
+        //gets the familyPassword file inside the `info` directory
+        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+
         //tests if both field are empty
         if (familyLastname.isBlank() && familyPassword.isBlank()) {
             JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
@@ -171,33 +180,32 @@ public class LoginAndRegistration extends javax.swing.JFrame {
             } else {
                 //test if the password has 8 digits
                 if (familyPassword.length() == 8) {
-                    //gets the family folder
-                    File familyFolder = new File(defaultFamilyFilePath + familyLastname);
 
                     //test if the folder exists
                     if (familyFolder.exists()) {
-                        //gets the familyPassword file inside the `info` directory
-                        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
 
-                        //reads inside the file
-                        Scanner passwordReader = null;
-                        try {
-                            passwordReader = new Scanner(familyPasswordFile);
-                        } catch (FileNotFoundException ex) {
-                            Logger.getLogger(LoginAndRegistration.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        if (info.exists()) {
 
-                        while (passwordReader.hasNextLine()) {
-                            String passwordFromFile = passwordReader.nextLine();
+                            if (familyPasswordFile.exists()) {
+                                try {
+                                    //reads inside the file
+                                    Scanner passwordReader = new Scanner(familyPasswordFile);
 
-                            //tests if the `passwordFromFile` matches the given one from the user
-                            if(passwordFromFile.equalsIgnoreCase(familyPassword)){
-                                //enters the system
-                                dispose();
-                                new FamilyManager().setVisible(true);
-                            }else{
-                                //shows a error message
-                                JOptionPane.showMessageDialog(null,"Your password is incorrect !","Wrong Password",0);
+                                    while (passwordReader.hasNext()) {
+                                        //tests if the password matches the text inside the file
+                                        if (familyPassword.equalsIgnoreCase(passwordReader.next())) {
+                                            //enters the system
+                                            dispose();
+                                            new FamilyManager().setVisible(true);
+                                        } else {
+                                            //shows a error message
+                                            JOptionPane.showMessageDialog(null, "Your Password is Wrong !", "Incorrect password", 0);
+                                        }
+                                    }
+
+                                } catch (FileNotFoundException ex) {
+                                    Logger.getLogger(LoginAndRegistration.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
                         }
 
