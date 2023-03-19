@@ -15,6 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -24,6 +26,8 @@ import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULT
  */
 public class FamilyManager extends javax.swing.JFrame {
 
+    private static ArrayList<String> orderedData = new ArrayList<>();
+    private static File dataFile = new File("C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\data.txt");
     /**
      * Creates new form FamilyManager
      */
@@ -341,7 +345,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
         //renaming the folder
         familyFolder.renameTo(UpdatedfamilyFolder);
-        
+
         //gets the familyInformation file with the path already updated
         File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\" + "info" + "\\" + "about.txt");
 
@@ -355,14 +359,28 @@ public class FamilyManager extends javax.swing.JFrame {
 
             //setts the new last name into the class
             Familia.setFamilyLastname(newFamilyLastname);
+            Familia.setFamilyId(Integer.parseInt(orderedData.get(0)));
+            Familia.setCity(orderedData.get(3));
+            Familia.setProvince(orderedData.get(2));
+            Familia.setHood(orderedData.get(4));
+            Familia.setPhoneNumber(Integer.parseInt(orderedData.get(5)));
+
+            //data file
+            Scanner reader = new Scanner(dataFile);
+            while (reader.hasNext()) {
+                String fileData = reader.next();
+                //storing inside the array
+                orderedData.add(fileData);
+                System.out.println(fileData);
+            }
 
             //writtes the given data, by the user, to the file
-            familyInformationFileWriter.write("ID:" + Familia.getFamilyId() + "\n");
-            familyInformationFileWriter.write("Lastname:" + Familia.getFamilyLastname() + "\n");
-            familyInformationFileWriter.write("Province:" + Localizacao.getProvince() + "\n");
-            familyInformationFileWriter.write("City:" + Localizacao.getCity() + "\n");
-            familyInformationFileWriter.write("Neighborhood:" + Localizacao.getHood() + "\n");
-            familyInformationFileWriter.write("Contact:" + Familia.getPhoneNumber());
+            familyInformationFileWriter.write("ID:" + orderedData.get(0) + "\n");
+            familyInformationFileWriter.write("Lastname:" + orderedData.get(1) + "\n");
+            familyInformationFileWriter.write("Province:" + orderedData.get(2) + "\n");
+            familyInformationFileWriter.write("City:" + orderedData.get(3) + "\n");
+            familyInformationFileWriter.write("Neighborhood:" + orderedData.get(4) + "\n");
+            familyInformationFileWriter.write("Contact:" + orderedData.get(5));
 
             //closes the FileWriter Object
             familyInformationFileWriter.close();
@@ -601,14 +619,7 @@ public class FamilyManager extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FamilyManager().setVisible(true);
-                //initializating all values
-                Familia.setFamilyLastname(LoginAndRegistration.familyLastname);
-                Localizacao.setCity(RegistrationMainScreenInfoFields.familyCity);
-                Localizacao.setProvince(RegistrationMainScreenInfoFields.familyProvince);
-                Localizacao.setHood(RegistrationMainScreenInfoFields.familyHood);
-                Familia.setPhoneNumber(Integer.parseInt(RegistrationMainScreenInfoFields.familyPhonenumber));
-                Familia.setFamilyId(RegistrationMainScreenInfoFields.familyId);
-                //-----
+
             }
         });
     }

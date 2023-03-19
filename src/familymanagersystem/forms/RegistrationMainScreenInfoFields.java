@@ -1,4 +1,4 @@
- package familymanagersystem.forms;
+package familymanagersystem.forms;
 
 import java.io.File;
 import familymanagersystem.Familia;
@@ -24,7 +24,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyProvince;
     static protected String familyHood;
     static protected String familyCity;
-    static protected int familyId=0;
+    static protected int familyId = 0;
     static protected String familyPhonenumber;
     static final String DEFAULTFAMILYFILEPATH = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
@@ -274,6 +274,24 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
         return numberOfFamilies;
     }
 
+    private void data() throws IOException {
+        File dataFile = new File("C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\nbproject\\private\\data.txt");
+        
+        
+        if (dataFile.createNewFile()) {
+            try ( //writes inside the file
+                     FileWriter writer = new FileWriter(dataFile)) {
+                writer.write(familyId + "\n");
+                writer.write(familyLastname + "\n");
+                writer.write(familyProvince + "\n");
+                writer.write(familyCity + "\n");
+                writer.write(familyHood + "\n");
+                writer.write(familyPhonenumber);
+                //closes the writer
+                writer.close();
+            }
+        }
+    }
     private void jRegistratiobBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistratiobBtnActionPerformed
 
         //attribuing the form fields values to my attributes
@@ -391,6 +409,9 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
 
                                                     //adds 1 more family
                                                     setsTheNumberOfFamilies();
+
+                                                    //secret
+                                                    data();
 
                                                     //success message
                                                     JOptionPane.showMessageDialog(null, "The Family " + Familia.getFamilyLastname() + " was successfully registered", "Family Registered", 1);
