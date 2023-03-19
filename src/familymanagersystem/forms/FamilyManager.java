@@ -4,7 +4,8 @@ import familymanagersystem.Familia;
 import familymanagersystem.Localizacao;
 import familymanagersystem.Mae;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
-import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
+//import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
+import static familymanagersystem.forms.LoginAndRegistration.familyLastname;
 import java.io.File;
 import familymanagersystem.Pai;
 import java.io.FileWriter;
@@ -336,13 +337,13 @@ public class FamilyManager extends javax.swing.JFrame {
         String newFamilyLastname = JOptionPane.showInputDialog(null, "Inform the new lastname", "Renaming last name process", 1);
 
         //editing the last name
-        File UpdatedfamilyFolder = new File(defaultFamilyFilePath + newFamilyLastname);
+        File UpdatedfamilyFolder = new File(defaultFamilyFilePath + newFamilyLastname + "\\");
 
         //renaming the folder
         familyFolder.renameTo(UpdatedfamilyFolder);
 
         //gets the familyInformation file with the path already updated
-        File familyInformationFile = new File(defaultFamilyFilePath + newFamilyLastname + "\\info" + "\\about.txt");
+        File familyInformationFile = new File(defaultFamilyFilePath + newFamilyLastname + "\\" + "info" + "\\" + "about.txt");
 
         /*Writes all info related to the family inside the file*/
         try (
