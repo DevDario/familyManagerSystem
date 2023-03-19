@@ -28,18 +28,10 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jDeleteFamilyPanel = new javax.swing.JPanel();
-        jTrashIcon = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTotalAmount = new javax.swing.JLabel();
         jnewFamilyPanel = new javax.swing.JPanel();
         jaddIcon = new javax.swing.JLabel();
         jAddFamilyTitle = new javax.swing.JLabel();
         jAddFamily = new javax.swing.JLabel();
-        jnewFamilyMemberPanel = new javax.swing.JPanel();
-        jaddIcon1 = new javax.swing.JLabel();
-        jAddFamilyTitle1 = new javax.swing.JLabel();
-        jAddFamily1 = new javax.swing.JLabel();
         jfamilyOptionsScreenBackground = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(19, 19, 19));
@@ -60,63 +52,6 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jDeleteFamilyPanel.setBackground(new java.awt.Color(45, 45, 45));
-        jDeleteFamilyPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(226, 64, 73)));
-        jDeleteFamilyPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jDeleteFamilyPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jDeleteFamilyPanelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jDeleteFamilyPanelMouseExited(evt);
-            }
-        });
-
-        jTrashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trash_icon.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Delete a family");
-
-        jTotalAmount.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
-        jTotalAmount.setForeground(new java.awt.Color(255, 255, 255));
-        jTotalAmount.setText("choose family");
-        jTotalAmount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTotalAmount.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTotalAmountMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jDeleteFamilyPanelLayout = new javax.swing.GroupLayout(jDeleteFamilyPanel);
-        jDeleteFamilyPanel.setLayout(jDeleteFamilyPanelLayout);
-        jDeleteFamilyPanelLayout.setHorizontalGroup(
-            jDeleteFamilyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDeleteFamilyPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTrashIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(96, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDeleteFamilyPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTotalAmount)
-                .addGap(22, 22, 22))
-        );
-        jDeleteFamilyPanelLayout.setVerticalGroup(
-            jDeleteFamilyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDeleteFamilyPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDeleteFamilyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTrashIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jTotalAmount)
-                .addGap(20, 20, 20))
-        );
-
-        add(jDeleteFamilyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
         jnewFamilyPanel.setBackground(new java.awt.Color(45, 45, 45));
         jnewFamilyPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(164, 68, 232)));
@@ -175,57 +110,6 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
 
         add(jnewFamilyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jnewFamilyMemberPanel.setBackground(new java.awt.Color(45, 45, 45));
-        jnewFamilyMemberPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(232, 166, 68)));
-        jnewFamilyMemberPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jnewFamilyMemberPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jnewFamilyMemberPanelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jnewFamilyMemberPanelMouseExited(evt);
-            }
-        });
-
-        jaddIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add_medium_icon.png"))); // NOI18N
-
-        jAddFamilyTitle1.setFont(new java.awt.Font("Poppins Light", 0, 13)); // NOI18N
-        jAddFamilyTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        jAddFamilyTitle1.setText("Add new family member");
-
-        jAddFamily1.setFont(new java.awt.Font("Poppins Light", 0, 16)); // NOI18N
-        jAddFamily1.setForeground(new java.awt.Color(255, 255, 255));
-        jAddFamily1.setText("Register now");
-        jAddFamily1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jnewFamilyMemberPanelLayout = new javax.swing.GroupLayout(jnewFamilyMemberPanel);
-        jnewFamilyMemberPanel.setLayout(jnewFamilyMemberPanelLayout);
-        jnewFamilyMemberPanelLayout.setHorizontalGroup(
-            jnewFamilyMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jnewFamilyMemberPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jaddIcon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jAddFamilyTitle1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jnewFamilyMemberPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jAddFamily1)
-                .addGap(23, 23, 23))
-        );
-        jnewFamilyMemberPanelLayout.setVerticalGroup(
-            jnewFamilyMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jnewFamilyMemberPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jnewFamilyMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jaddIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jAddFamilyTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jAddFamily1)
-                .addGap(21, 21, 21))
-        );
-
-        add(jnewFamilyMemberPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 240, -1));
-
         jfamilyOptionsScreenBackground.setBackground(new java.awt.Color(19, 19, 19));
 
         javax.swing.GroupLayout jfamilyOptionsScreenBackgroundLayout = new javax.swing.GroupLayout(jfamilyOptionsScreenBackground);
@@ -257,58 +141,13 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
         new RegistrationMainScreen().setVisible(true);
     }//GEN-LAST:event_jAddFamilyMouseClicked
 
-    private void jDeleteFamilyPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDeleteFamilyPanelMouseExited
-        // changes the background color
-        jDeleteFamilyPanel.setBackground(new java.awt.Color(45, 45, 45));
-    }//GEN-LAST:event_jDeleteFamilyPanelMouseExited
-
-    private void jDeleteFamilyPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDeleteFamilyPanelMouseEntered
-        // changes the background color
-        jDeleteFamilyPanel.setBackground(new java.awt.Color(47, 47, 47));
-    }//GEN-LAST:event_jDeleteFamilyPanelMouseEntered
-
-    private void jTotalAmountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTotalAmountMouseClicked
-        // holds the family's lastname
-        String familyToDelete = JOptionPane.showInputDialog(null, "Inform the family lastname", "Deleting a family", 2);
-
-        //searches for the folder with the given lastname
-        File familyFolder = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + familyToDelete);
-
-        if (familyFolder.isDirectory()) {
-            //deletes the family(folder that contains all info related to the family)
-            familyFolder.delete();
-            //shows a success message
-            JOptionPane.showMessageDialog(null, "<html>The Family was <strong>successfully deleted !</strong></html>", "Deletion Complete", 1);
-        } else {
-            JOptionPane.showMessageDialog(null, "<html>This Family wasn't found<br>in our system, <strong>please try again</strong></html>", "Error 404: Family Not Found", 2);
-        }
-    }//GEN-LAST:event_jTotalAmountMouseClicked
-
-    private void jnewFamilyMemberPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jnewFamilyMemberPanelMouseExited
-        // changes the background color
-        jnewFamilyMemberPanel.setBackground(new java.awt.Color(45, 45, 45));
-    }//GEN-LAST:event_jnewFamilyMemberPanelMouseExited
-
-    private void jnewFamilyMemberPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jnewFamilyMemberPanelMouseEntered
-        // changes the background color
-        jnewFamilyMemberPanel.setBackground(new java.awt.Color(47, 47, 47));
-    }//GEN-LAST:event_jnewFamilyMemberPanelMouseEntered
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jAddFamily;
-    private javax.swing.JLabel jAddFamily1;
     private javax.swing.JLabel jAddFamilyTitle;
-    private javax.swing.JLabel jAddFamilyTitle1;
-    private javax.swing.JPanel jDeleteFamilyPanel;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel jTotalAmount;
-    private javax.swing.JLabel jTrashIcon;
     private javax.swing.JLabel jaddIcon;
-    private javax.swing.JLabel jaddIcon1;
     private javax.swing.JPanel jfamilyOptionsScreenBackground;
-    private javax.swing.JPanel jnewFamilyMemberPanel;
     private javax.swing.JPanel jnewFamilyPanel;
     // End of variables declaration//GEN-END:variables
 }
