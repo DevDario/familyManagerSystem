@@ -26,7 +26,7 @@ public class RegistrationMainScreenInfoFields extends javax.swing.JPanel {
     static protected String familyCity;
     static protected int familyId=0;
     static protected String familyPhonenumber;
-    static protected String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
+    static final String defaultFamilyFilePath = "C:\\Users\\Da\\Documents\\NetBeansProjects\\familyManagerSystem\\src\\families\\";
     static protected HashMap<Integer, String> families = new HashMap<>();
     //family password attribute/variable
     static protected String familyPassword;
