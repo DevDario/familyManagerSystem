@@ -272,7 +272,7 @@ public class DashboardFamilyOptionsScreen extends javax.swing.JPanel {
         String familyToDelete = JOptionPane.showInputDialog(null, "Inform the family lastname", "Deleting a family", 2);
 
         //searches for the folder with the given lastname
-        File familyFolder = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + familyToDelete);
+        File familyFolder = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + familyToDelete);
 
         if (familyFolder.isDirectory()) {
             //deletes the family(folder that contains all info related to the family)

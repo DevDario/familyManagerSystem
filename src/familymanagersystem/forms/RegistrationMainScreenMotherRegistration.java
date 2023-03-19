@@ -166,10 +166,10 @@ public class RegistrationMainScreenMotherRegistration extends javax.swing.JPanel
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the mother
-                File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
+                File motherInformation = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother" + "\\about.txt");
 
                 //main directory for all the files related to registrated son
-                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother");
+                File info = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname + "\\" + "mother");
 
                 //checks if the family already has a mother
                 if (motherInformation.exists()) {

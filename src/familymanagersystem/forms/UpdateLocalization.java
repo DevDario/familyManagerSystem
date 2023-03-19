@@ -2,7 +2,6 @@ package familymanagersystem.forms;
 
 import familymanagersystem.Familia;
 import familymanagersystem.Localizacao;
-import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH;
 
 /**
  *
@@ -168,11 +168,11 @@ public class UpdateLocalization extends javax.swing.JFrame {
 
                 try {
                     //gets the family info file
-                    File familyInformationFile = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
+                    File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
                     //deletes the old file
                     familyInformationFile.delete();
                     /*creating another file*/
-                    File updatedLocation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
+                    File updatedLocation = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
                     //setts all values to the 'Familia' class attributes
                     try ( //creates a file writer object for the file
                              FileWriter updatedLocationWriter = new FileWriter(updatedLocation)) {

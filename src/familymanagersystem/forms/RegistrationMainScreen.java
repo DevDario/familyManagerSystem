@@ -1,11 +1,11 @@
 package familymanagersystem.forms;
 
-import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH;
 
 /**
  *
@@ -201,16 +201,16 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
         //folder that will contain all files related to the family
-        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+        File familyFolder = new File(DEFAULTFAMILYFILEPATH + familyLastname);
 
         //main directory to save all info files related to the family
-        File info = new File(defaultFamilyFilePath + familyLastname + "\\info");
+        File info = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info");
 
         //file that will contain all information related to registered family
-        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+        File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\about.txt");
 
         //creates a file to hold the password
-        File familyPasswordFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\familyPassword.txt");
+        File familyPasswordFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\familyPassword.txt");
 
         //checks if the above file exists
         if (familyFolder.exists()) {

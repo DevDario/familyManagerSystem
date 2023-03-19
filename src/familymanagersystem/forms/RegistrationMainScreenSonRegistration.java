@@ -166,10 +166,10 @@ public class RegistrationMainScreenSonRegistration extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "You Need To Fill All The Fields", "Please, Fill Out All Fields", 0);
             } else {
                 //holds all information related to the son
-                File sonInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName + "\\about.txt");
+                File sonInformation = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName + "\\about.txt");
 
                 //main directory for all the files related to registrated son
-                File info = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName);
+                File info = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname + "\\" + sonName);
 
                 //creates the main directory
                 info.mkdir();

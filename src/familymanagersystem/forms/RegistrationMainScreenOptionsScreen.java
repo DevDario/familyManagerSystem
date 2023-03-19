@@ -214,9 +214,9 @@ public class RegistrationMainScreenOptionsScreen extends javax.swing.JPanel {
          */
 
         //holds all information related to the father
-        File fatherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname +"\\"+ "father" + "\\about.txt");
+        File fatherInformation = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname +"\\"+ "father" + "\\about.txt");
         //holds all information related to the mother
-        File motherInformation = new File(RegistrationMainScreenInfoFields.defaultFamilyFilePath + RegistrationMainScreenInfoFields.familyLastname +"\\"+ "mother" + "\\about.txt");
+        File motherInformation = new File(RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH + RegistrationMainScreenInfoFields.familyLastname +"\\"+ "mother" + "\\about.txt");
 
         //checks if one of the above files exists in the family folder that the user created
         if (fatherInformation.exists() || motherInformation.exists()) {
