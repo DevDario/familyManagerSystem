@@ -69,9 +69,9 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registration | Set up a new Family");
         setLocation(new java.awt.Point(330, 90));
         setName("Registration"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -81,11 +81,6 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
-            }
-        });
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,7 +131,7 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
 
         jGoBackToLogin.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         jGoBackToLogin.setForeground(new java.awt.Color(110, 86, 219));
-        jGoBackToLogin.setText("Home Screen");
+        jGoBackToLogin.setText("Manage Family");
         jGoBackToLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jGoBackToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
