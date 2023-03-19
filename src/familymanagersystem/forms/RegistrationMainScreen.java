@@ -69,6 +69,7 @@ public class RegistrationMainScreen extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registrate Your Family");
         setLocation(new java.awt.Point(330, 90));
         setName("Registration"); // NOI18N
         setResizable(false);
