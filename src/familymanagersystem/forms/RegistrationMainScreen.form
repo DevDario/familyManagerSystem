@@ -21,7 +21,6 @@
       <Point value="[330, 90]"/>
     </Property>
     <Property name="name" type="java.lang.String" value="Registration" noResource="true"/>
-    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
