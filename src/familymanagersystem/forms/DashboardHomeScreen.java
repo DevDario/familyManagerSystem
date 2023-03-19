@@ -39,7 +39,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
         jfamilyIcon = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jNumberOfFamilies = new javax.swing.JLabel();
-        jfamiliesPanel1 = new javax.swing.JPanel();
         jdashboardHomeScreenBackground = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(19, 19, 19));
@@ -219,23 +218,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
 
         add(jfamiliesPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 52, 233, -1));
 
-        jfamiliesPanel1.setBackground(new java.awt.Color(45, 45, 45));
-        jfamiliesPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 0, 0, 0, new java.awt.Color(85, 171, 219)));
-        jfamiliesPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        javax.swing.GroupLayout jfamiliesPanel1Layout = new javax.swing.GroupLayout(jfamiliesPanel1);
-        jfamiliesPanel1.setLayout(jfamiliesPanel1Layout);
-        jfamiliesPanel1Layout.setHorizontalGroup(
-            jfamiliesPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
-        );
-        jfamiliesPanel1Layout.setVerticalGroup(
-            jfamiliesPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
-        );
-
-        add(jfamiliesPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 186, -1, -1));
-
         jdashboardHomeScreenBackground.setBackground(new java.awt.Color(19, 19, 19));
 
         javax.swing.GroupLayout jdashboardHomeScreenBackgroundLayout = new javax.swing.GroupLayout(jdashboardHomeScreenBackground);
@@ -296,7 +278,6 @@ public class DashboardHomeScreen extends javax.swing.JPanel {
     private javax.swing.JPanel jcompaniesPanel;
     private javax.swing.JPanel jdashboardHomeScreenBackground;
     private javax.swing.JPanel jfamiliesPanel;
-    private javax.swing.JPanel jfamiliesPanel1;
     private javax.swing.JLabel jfamilyIcon;
     private javax.swing.JLabel jmoneyIcon;
     // End of variables declaration//GEN-END:variables
