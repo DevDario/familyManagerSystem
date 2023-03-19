@@ -3,7 +3,6 @@ package familymanagersystem.forms;
 import familymanagersystem.Familia;
 import familymanagersystem.Localizacao;
 import familymanagersystem.Mae;
-import static familymanagersystem.forms.RegistrationMainScreenInfoFields.defaultFamilyFilePath;
 //import static familymanagersystem.forms.RegistrationMainScreenInfoFields.familyLastname;
 import static familymanagersystem.forms.LoginAndRegistration.familyLastname;
 import java.io.File;
@@ -15,6 +14,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import static familymanagersystem.forms.RegistrationMainScreenInfoFields.DEFAULTFAMILYFILEPATH;
 
 /**
  *
@@ -331,19 +331,19 @@ public class FamilyManager extends javax.swing.JFrame {
 
     static void editFamilyLastname() throws IOException {
         //gets the family directory
-        File familyFolder = new File(defaultFamilyFilePath + familyLastname);
+        File familyFolder = new File(DEFAULTFAMILYFILEPATH + familyLastname);
 
         //gets the new last name
         String newFamilyLastname = JOptionPane.showInputDialog(null, "Inform the new lastname", "Renaming last name process", 1);
 
         //editing the last name
-        File UpdatedfamilyFolder = new File(defaultFamilyFilePath + newFamilyLastname + "\\");
+        File UpdatedfamilyFolder = new File(DEFAULTFAMILYFILEPATH + newFamilyLastname);
 
         //renaming the folder
         familyFolder.renameTo(UpdatedfamilyFolder);
-
+        
         //gets the familyInformation file with the path already updated
-        File familyInformationFile = new File(defaultFamilyFilePath + newFamilyLastname + "\\" + "info" + "\\" + "about.txt");
+        File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\" + "info" + "\\" + "about.txt");
 
         /*Writes all info related to the family inside the file*/
         try (
@@ -374,7 +374,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
     static void editFatherName() throws IOException {
         //gets the father file
-        File fatherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
+        File fatherInformation = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
 
         //gets the new name
         String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming father process", 2);
@@ -388,7 +388,7 @@ public class FamilyManager extends javax.swing.JFrame {
             fatherInformation.delete();
 
             /*creating another file*/
-            File updatedFatherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
+            File updatedFatherInformation = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\" + "father" + "\\about.txt");
 
             //writes inside the file
             try ( //creates a file writer object for the file
@@ -409,7 +409,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
     static void editMotherName() throws IOException {
         //gets the mother file
-        File motherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
+        File motherInformation = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
 
         //gets the new name
         String newName = JOptionPane.showInputDialog(null, "Inform the new name", "Renaming mother process", 2);
@@ -423,7 +423,7 @@ public class FamilyManager extends javax.swing.JFrame {
             motherInformation.delete();
 
             /*creating another file*/
-            File updatedMotherInformation = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
+            File updatedMotherInformation = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\" + "mother" + "\\about.txt");
 
             //writes inside the file
             try ( //creates a file writer object for the file
@@ -444,7 +444,7 @@ public class FamilyManager extends javax.swing.JFrame {
 
     static void editPhonenumber() throws IOException {
         //gets the familyInformation file with the path already updated
-        File familyInformationFile = new File(defaultFamilyFilePath + familyLastname + "\\info" + "\\about.txt");
+        File familyInformationFile = new File(DEFAULTFAMILYFILEPATH + familyLastname + "\\info" + "\\about.txt");
 
         //gets the new phone number
         String newPhonenumber = JOptionPane.showInputDialog(null, "Inform the new Phone Number", "Updating Phone Number", 2);
@@ -459,7 +459,7 @@ public class FamilyManager extends javax.swing.JFrame {
             familyInformationFile.delete();
 
             /*creating another file*/
-            File updatedPhonenumber = new File(defaultFamilyFilePath + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
+            File updatedPhonenumber = new File(DEFAULTFAMILYFILEPATH + Familia.getFamilyLastname() + "\\info" + "\\about.txt");
 
             try ( //creates a file writer object for the file
                      FileWriter updatedPhonenumberWriter = new FileWriter(updatedPhonenumber)) {
@@ -603,9 +603,9 @@ public class FamilyManager extends javax.swing.JFrame {
                 new FamilyManager().setVisible(true);
                 //initializating all values
                 Familia.setFamilyLastname(LoginAndRegistration.familyLastname);
-                Familia.setCity(RegistrationMainScreenInfoFields.familyCity);
-                Familia.setProvince(RegistrationMainScreenInfoFields.familyProvince);
-                Familia.setHood(RegistrationMainScreenInfoFields.familyHood);
+                Localizacao.setCity(RegistrationMainScreenInfoFields.familyCity);
+                Localizacao.setProvince(RegistrationMainScreenInfoFields.familyProvince);
+                Localizacao.setHood(RegistrationMainScreenInfoFields.familyHood);
                 Familia.setPhoneNumber(Integer.parseInt(RegistrationMainScreenInfoFields.familyPhonenumber));
                 Familia.setFamilyId(RegistrationMainScreenInfoFields.familyId);
                 //-----
